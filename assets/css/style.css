@@ -465,3 +465,14 @@ caption{caption-side:bottom;font-size:.78rem;color:var(--faint);padding:8px;text
 .rel-block .acc-body-in p{margin:0 0 10px;font-size:.94rem;line-height:1.8;color:var(--ink-soft)}
 .rel-block .acc-body-in a{color:var(--green-700);font-weight:700;text-decoration:none}
 .rel-block .acc-body-in a:hover{text-decoration:underline}
+
+/* ==== blog 列表：兩欄卡片（寬屏） ==== */
+@media (min-width:1024px){
+  #blogList{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;align-items:start;flex-direction:initial}
+  #blogList .acc-item{min-height:230px}
+  #blogList .acc-item.open{min-height:0}
+}
+
+@media (min-width:1024px){
+  .content.content-wide{max-width:none}
+}
