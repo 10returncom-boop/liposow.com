@@ -138,61 +138,7 @@
     });
   }
 
-  /* ---- 最新文章 Accordion（動態讀取 blog/data.json） ---- */
-  var accRoots = document.querySelectorAll('[data-latest-src]');
-  accRoots.forEach(function(root){
-    var src = root.getAttribute('data-latest-src') || 'blog/data.json';
-    var openFirst = root.hasAttribute('data-open-first');
-    var allOpen = root.hasAttribute('data-open-all');
-    var urlPrefix = root.getAttribute('data-url-prefix') || '';
-    fetch(src, {cache:'no-store'}).then(function(r){ return r.json(); }).then(function(data){
-      var list = (data && data.articles) ? data.articles : [];
-      var box = document.createElement('div');
-      box.className = 'acc';
-      box.setAttribute('role','list');
-      list.forEach(function(a, idx){
-        var item = document.createElement('div');
-        var open0 = (openFirst && idx === 0) || allOpen;
-        item.className = 'acc-item' + (open0 ? ' open' : '');
-        var tagsHtml = (a.tags || []).map(function(t){ return '<span>#' + t + '</span>'; }).join('');
-        var btn = document.createElement('button');
-        btn.type = 'button'; btn.className = 'acc-head';
-        btn.setAttribute('aria-expanded', open0 ? 'true' : 'false');
-        btn.innerHTML = '<span class="acc-title"><span class="t">' + a.title + '</span></span><span class="chev" aria-hidden="true">▾</span>';
-        var body = document.createElement('div');
-        body.className = 'acc-body';
-        body.innerHTML = '<div class="acc-body-in"><div class="meta-row"><span class="cat">' + a.category + '</span><span class="date">' + a.date + '</span><a class="read" href="' + urlPrefix + a.url + '">閱讀全文</a></div><div class="ex">' + a.excerpt + '</div><div class="acc-tags">' + tagsHtml + '</div></div>';
-        btn.addEventListener('click', function(e){
-          var target = (e && e.target) ? e.target : null;
-          if (target && target.closest && target.closest('.t')) {
-            window.open(urlPrefix + a.url, '_blank');
-            return;
-          }
-          var isOpen = item.classList.toggle('open');
-          btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-        });
-        var main = document.createElement('div');
-        main.className = 'acc-main';
-        main.appendChild(btn); main.appendChild(body);
-        if(a.image){
-          var thumb = document.createElement('div');
-          thumb.className = 'acc-thumb';
-          thumb.innerHTML = '<a class="acc-thumb-link" href="' + urlPrefix + a.url + '" target="_blank" rel="noopener"><img src="' + a.image + '" alt="' + (a.alt || a.title) + '" loading="lazy"></a>';
-          item.appendChild(thumb);
-        }
-        item.appendChild(main);
-        box.appendChild(item);
-      });
-      root.appendChild(box);
-    }).catch(function(){
-      var msg = document.createElement('p');
-      msg.textContent = '最新文章載入失敗，請稍後再試。';
-      msg.style.color = 'var(--ink-soft)'; msg.style.fontSize = '.9rem';
-      root.appendChild(msg);
-    });
-  });
 
-})();
 
 (function(){
   var INDEX = [];
