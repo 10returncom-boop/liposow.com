@@ -193,13 +193,22 @@
 })();
 
 (function(){
+  // 手風琴只展開、不收起（再點一次仍保持展開）
   document.querySelectorAll('.acc').forEach(function(box){
     box.querySelectorAll('.acc-head').forEach(function(btn){
       btn.addEventListener('click', function(){
         var item = btn.closest('.acc-item');
-        var open = item.classList.toggle('open');
-        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
       });
+    });
+  });
+  // 卡片式摺疊（details）同樣只展開不收起
+  document.querySelectorAll('.bl-card').forEach(function(card){
+    var sum = card.querySelector('summary');
+    if(!sum) return;
+    sum.addEventListener('click', function(e){
+      if(card.open) e.preventDefault();
     });
   });
 })();
