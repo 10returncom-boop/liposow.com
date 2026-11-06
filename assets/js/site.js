@@ -189,3 +189,15 @@
     }
   });
 })();
+
+(function(){
+  document.querySelectorAll('.acc').forEach(function(box){
+    box.querySelectorAll('.acc-head').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var item = btn.closest('.acc-item');
+        var open = item.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    });
+  });
+})();
