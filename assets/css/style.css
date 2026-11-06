@@ -137,7 +137,7 @@ small{font-size:.85em}
 .hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line);
   background:
     radial-gradient(ellipse 700px 400px at 30% 50%,rgba(244,246,242,.92) 0%,rgba(244,246,242,.70) 45%,rgba(244,246,242,0) 72%),
-    url("../../img/hero-terrace.webp") center / cover no-repeat;}
+    url("../../img/hero-terrace.webp?v=20261106b") center / cover no-repeat;}
 .hero-in{position:relative;max-width:var(--content);margin:0 auto;padding:78px 22px 72px;display:grid;grid-template-columns:min(600px,1fr);gap:32px;align-items:center}
 .hero-in>*{position:relative;z-index:1}
 .hero h1{margin:.5rem 0 1rem}
@@ -334,7 +334,7 @@ caption{caption-side:bottom;font-size:.78rem;color:var(--faint);padding:8px;text
   .hero-in{display:flex;flex-direction:column;width:100%;padding:52px 18px 96px;gap:14px}
   .hero-in .cta-row{margin-top:auto}
   .hero-art{display:none}
-  .hero{display:flex;min-height:100svh;min-height:100vh;background:url("../../img/drone-clear.webp") center center / cover no-repeat}
+  .hero{display:flex;min-height:100svh;min-height:100vh;background:url("../../img/drone-clear.webp?v=20261106b") center center / cover no-repeat}
   .hero h1{text-shadow:0 1px 3px rgba(244,246,242,.95);margin:.3rem 0 .6rem}
   .hero .lede{font-size:.9rem;color:#000;text-shadow:0 1px 2px rgba(244,246,242,.9);max-width:100%}
   .facts{gap:18px}
