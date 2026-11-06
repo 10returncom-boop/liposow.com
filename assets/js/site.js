@@ -140,6 +140,8 @@
 
 
 
+})();
+
 (function(){
   var INDEX = [];
   fetch('/search-index.json', {cache:'force-cache'})
@@ -200,4 +202,23 @@
       });
     });
   });
+})();
+
+(function(){
+  function initBlogFilter(){
+    var sel = document.getElementById('blogFilter');
+    if(!sel || sel.getAttribute('data-bound') === '1') return;
+    sel.setAttribute('data-bound', '1');
+    sel.addEventListener('change', function(){
+      var v = sel.value;
+      document.querySelectorAll('#blogList .acc-item').forEach(function(it){
+        it.style.display = (v === 'all' || it.getAttribute('data-cat') === v) ? '' : 'none';
+      });
+    });
+  }
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', initBlogFilter);
+  } else {
+    initBlogFilter();
+  }
 })();
