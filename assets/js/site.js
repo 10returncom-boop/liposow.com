@@ -208,6 +208,8 @@
     var sum = card.querySelector('summary');
     if(!sum) return;
     sum.addEventListener('click', function(e){
+      // 點卡片內的連結（縮圖／標題）要正常跳頁，不能被「只展開不收起」擋掉
+      if(e.target && e.target.closest && e.target.closest('a')) return;
       if(card.open) e.preventDefault();
     });
   });

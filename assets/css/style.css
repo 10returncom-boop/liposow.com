@@ -476,3 +476,9 @@ caption{caption-side:bottom;font-size:.78rem;color:var(--faint);padding:8px;text
 @media (min-width:1024px){
   .content.content-wide{max-width:none}
 }
+
+/* 卡片標題／縮圖可直接點進內頁 */
+.acc-head .t, .acc-head a.t{color:inherit;text-decoration:none}
+.acc-head a.t:hover{text-decoration:underline;text-underline-offset:3px}
+.bl-title, .bl-thumb{color:inherit;text-decoration:none}
+.bl-title:hover{text-decoration:underline;text-underline-offset:3px}
