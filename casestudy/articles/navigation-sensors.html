@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GPS 與慣性導航哪個可靠？定位、圖傳與避障的考題邏輯</title>
+<meta name="description" content="非自主（GPS）導航易受干擾、自主（慣性）導航誤差會累積；導航系統提供位置、速度與姿態。另整理圖傳的類比與數位形態、機載處理器運算需求與資料鏈風險。">
+<meta name="keywords" content="GPS導航 易受干擾, 慣性導航 誤差累積, 無人機 導航系統 提供 位置 速度 姿態, 無人機 圖傳 類比 數位, 機載處理器 運算需求, 無人機 避障 感測器, 無人機 資料鏈 失效">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://liposow.com/casestudy/articles/navigation-sensors.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="農翔誌 LipoSow">
+<meta property="og:title" content="GPS 與慣性導航哪個可靠？定位、圖傳與避障的考題邏輯">
+<meta property="og:description" content="非自主（GPS）導航易受干擾、自主（慣性）導航誤差會累積；導航系統提供位置、速度與姿態。另整理圖傳的類比與數位形態、機載處理器運算需求與資料鏈風險。">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:url" content="https://liposow.com/casestudy/articles/navigation-sensors.html">
+<link rel="icon" type="image/svg+xml" href="">
+<link rel="stylesheet" href="../../assets/css/style.css?v=20261106b">
+<link rel="preconnect" href="https://miaoda.feishu.cn">
+<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Serif+TC:wght@500;700;800&family=Noto+Sans+TC:wght@400;500;700&display=swap">
+<style>
+
+.alist{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:1.2rem 0 1.4rem}
+.alist a{display:block;background:var(--card);border:1px solid var(--line);border-radius:var(--radius-m);padding:14px 16px;text-decoration:none;box-shadow:var(--shadow-s);transition:border-color .15s}
+.alist a:hover{border-color:var(--green-600)}
+.alist .t{font-weight:700;color:var(--ink);font-size:.96rem;line-height:1.45}
+.alist .m{font-size:.78rem;color:var(--muted);margin-top:6px;letter-spacing:.03em}
+.alist .c{font-size:.8rem;color:var(--sky-700);font-weight:700;margin-top:8px}
+.fbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:1rem 0 1.2rem;padding:12px 14px;background:var(--green-50,#F1F7F3);border:1px solid var(--line);border-radius:var(--radius-m)}
+.fbar label{font-size:.85rem;font-weight:700;color:var(--ink-soft)}
+.fbar select{font-size:.95rem;padding:7px 10px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--ink);min-width:180px}
+.fbar .cnt{font-size:.82rem;color:var(--muted);margin-left:auto}
+.hero{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-m);overflow:hidden;box-shadow:var(--shadow-s);margin:1.1rem 0 1.4rem}
+.hero img{width:100%;height:340px;object-fit:cover;object-position:center 40%;display:block}
+.hero figcaption{padding:10px 14px;font-size:.84rem;color:var(--muted)}
+@media (max-width:640px){.alist{grid-template-columns:1fr}.hero img{height:220px}}
+
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "GPS 與慣性導航哪個可靠？定位、圖傳與避障的考題邏輯", "description": "非自主（GPS）導航易受干擾、自主（慣性）導航誤差會累積；導航系統提供位置、速度與姿態。另整理圖傳的類比與數位形態、機載處理器運算需求與資料鏈風險。", "inLanguage": "zh-Hant", "author": {"@type": "Person", "name": "陳信旭"}, "publisher": {"@type": "Organization", "name": "農翔誌", "url": "https://liposow.com"}, "datePublished": "2026-11-06", "dateModified": "2026-11-06", "mainEntityOfPage": "https://liposow.com/casestudy/articles/navigation-sensors", "about": [{"@type": "Thing", "name": "學科知識"}, {"@type": "Thing", "name": "遙控無人機操作證訓練"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "首頁", "item": "https://liposow.com/"}, {"@type": "ListItem", "position": 2, "name": "案例資源", "item": "https://liposow.com/resources.html"}, {"@type": "ListItem", "position": 3, "name": "屏東培訓班案例", "item": "https://liposow.com/casestudy/"}, {"@type": "ListItem", "position": 4, "name": "專題文章", "item": "https://liposow.com/casestudy/articles/"}, {"@type": "ListItem", "position": 5, "name": "GPS 與慣性導航哪個可靠？定位、圖傳與避障的考題邏輯", "item": "https://liposow.com/casestudy/articles/navigation-sensors"}]}</script>
+</head>
+<body>
+<header class="site-header" id="siteHeader">
+  <div class="nav-inner">
+    <a class="brand" href="../../index.html"><svg class="mark" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="9" fill="#1E5A44"/><path d="M9 22h22" stroke="#E5EFE9" stroke-width="2.4" stroke-linecap="round"/><circle cx="9.5" cy="19" r="3.4" fill="none" stroke="#E5EFE9" stroke-width="2"/><circle cx="9.5" cy="25" r="3.4" fill="none" stroke="#E5EFE9" stroke-width="2"/><circle cx="30.5" cy="19" r="3.4" fill="none" stroke="#E5EFE9" stroke-width="2"/><circle cx="30.5" cy="25" r="3.4" fill="none" stroke="#E5EFE9" stroke-width="2"/></svg><span class="bt"><b>農翔誌 LipoSow</b></span></a>
+    <nav class="main-nav" id="mainNav" aria-label="主要導覽"><div class="nav-item" id="nv-tech"><a href="../../tech.html">無人機技術<span class="caret">▾</span></a><div class="mega"><div class="mcol"><span>硬體設備</span><a href="../../tech-drones.html">農用無人機機型怎麼選</a><a href="../../tech-starter.html">無人機技術怎麼入門</a><a href="../../tech-power.html">電池與動力系統</a><a href="../../tech-nav.html">定位、避障與導航</a></div><div class="mcol"><span>感測與影像</span><a href="../../tech-sensors.html">多光譜、熱影像拍攝</a><a href="../../tech-ai.html">AI 辨識病蟲與缺肥</a><a href="../../tech-cloud.html">雲端資料處理</a></div><div class="mcol"><span>自動飛行</span><a href="../../tech-autopilot.html">自動航線與任務規劃</a><a href="../../tech-variable.html">變量施作與處方圖</a><a href="../../tech-fleet.html">機隊與自動機巢</a></div></div></div><div class="nav-item" id="nv-agri"><a href="../../agri.html">農業產業鏈<span class="caret">▾</span></a><div class="mega"><div class="mcol"><span>種植前</span><a href="../../agri-pre.html">田區勘測與面積量測</a><a href="../../agri-soil.html">土壤分區與種植規劃</a><a href="../../agri-slope.html">山坡地風險評估</a></div><div class="mcol"><span>種植管理中</span><a href="../../agri-monitor.html">作物生長與逆境監測</a><a href="../../agri-spray.html">植保噴灑與飄移防護</a><a href="../../agri-sow.html">播種、撒肥與粒劑</a><a href="../../agri-assist.html">驅鳥、授粉與山區運補</a></div><div class="mcol"><span>收成後與下游</span><a href="../../agri-post.html">產量預估與採收研判</a><a href="../../agri-disaster.html">災害勘災與損失評估</a><a href="../../agri-trace.html">農地履歷與品牌行銷</a></div><div class="mcol"><span>服務生態系</span><a href="../../agri-service.html">飛防與測繪服務隊</a><a href="../../agri-chain.html">機具維修供應鏈</a></div></div></div><div class="nav-item" id="nv-life"><a href="../../life.html">無人機與生活<span class="caret">▾</span></a><div class="mega"><div class="mcol"><span>休閒空拍</span><a href="../../life-record.html">旅行、風景空拍</a><a href="../../life-event.html">活動與婚禮紀錄</a></div><div class="mcol"><span>生活服務</span><a href="../../life-deliver.html">山區、偏鄉配送</a><a href="../../life-patrol.html">巡邏、搜救與勘查</a></div><div class="mcol"><span>檢查與維運</span><a href="../../life-inspect.html">屋頂、外牆與太陽能巡檢</a><a href="../../life-site.html">工地進度紀錄</a></div><div class="mcol"><span>玩樂與學習</span><a href="../../life-starter.html">新手空拍入門</a><a href="../../life-race.html">競速與花式飛行</a><a href="../../life-edu.html">親子科普課程</a></div></div></div><div class="nav-item" id="nv-reg"><a href="../../reg.html">法規安全成本<span class="caret">▾</span></a><div class="mega"><div class="mcol"><span>法規規範</span><a href="../../reg-law.html">機體登記與飛手證照</a><a href="../../reg-no-fly.html">禁飛區與申請</a><a href="../../reg-env.html">噴藥的環境責任</a></div><div class="mcol"><span>作業安全</span><a href="../../reg-weather.html">天氣條件判斷</a><a href="../../reg-obstacle.html">避障與緊急處置</a><a href="../../reg-drift.html">藥劑飄移與鄰田爭議</a></div><div class="mcol"><span>成本與經營</span><a href="../../reg-cost.html">投入與維持成本</a><a href="../../reg-model.html">自購、合作社、外包</a></div></div></div><div class="nav-item" id="nv-future"><a href="../../future.html">未來永續<span class="caret">▾</span></a><div class="mega"><div class="mcol"><span>發展趨勢</span><a href="../../future-tech.html">技術與產業升級</a><a href="../../future-auto.html">全自動機場與機隊</a><a href="../../future-ai.html">AI 農業決策</a></div><div class="mcol"><span>永續農業</span><a href="../../future-sustain.html">減藥減水減碳</a><a href="../../future-organic.html">有機與坡地保育</a></div></div></div><div class="nav-item" id="nv-resources"><a href="../../resources.html">案例資源<span class="caret">▾</span></a><div class="mega"><div class="mcol"><span>實務案例</span><a href="../../resources-case.html">台灣農業案例</a><a href="../../resources-oversea.html">國外大型農場做法</a></div><div class="mcol"><span>工具與資源</span><a href="../../resources-tools.html">田間作業檢核表</a><a href="../../resources-training.html">飛手培訓資源</a><a href="../../resources-terms.html">名詞對照表</a></div><div class="mcol"><span>站內索引</span><a href="../../sitemap.html">知識庫目錄</a></div></div></div><div class="nav-item" id="nv-blog"><a href="../../blog/index.html">翔農氏Blog</a></div></nav>
+        <div class="search-wrap">
+      <input class="search-input" type="search" placeholder="搜尋全站…" autocomplete="off" aria-label="全站搜尋">
+      <div class="search-results" hidden></div>
+    </div>
+<a class="header-cta" href="../../contact.html">聯絡我們</a>
+    <button class="hamburger" id="hamburger" aria-label="開啟選單" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="header-spacer"></div>
+<div class="drawer" id="drawer" aria-hidden="true">
+  <div class="scrim" data-close></div>
+  <div class="panel">
+    <div class="d-head"><span class="serif" style="font-weight:800">農翔誌</span><button class="d-close" data-close aria-label="關閉">×</button></div>
+    <ul class="dl"><li><a href="../../tech.html">無人機技術</a><ul class="sub"><li><a href="../../tech-drones.html">農用無人機機型怎麼選</a></li><li><a href="../../tech-starter.html">無人機技術怎麼入門</a></li><li><a href="../../tech-power.html">電池與動力系統</a></li><li><a href="../../tech-nav.html">定位、避障與導航</a></li><li><a href="../../tech-sensors.html">多光譜、熱影像拍攝</a></li><li><a href="../../tech-ai.html">AI 辨識病蟲與缺肥</a></li><li><a href="../../tech-cloud.html">雲端資料處理</a></li><li><a href="../../tech-autopilot.html">自動航線與任務規劃</a></li><li><a href="../../tech-variable.html">變量施作與處方圖</a></li><li><a href="../../tech-fleet.html">機隊與自動機巢</a></li></ul></li><li><a href="../../agri.html">農業產業鏈</a><ul class="sub"><li><a href="../../agri-pre.html">田區勘測與面積量測</a></li><li><a href="../../agri-soil.html">土壤分區與種植規劃</a></li><li><a href="../../agri-slope.html">山坡地風險評估</a></li><li><a href="../../agri-monitor.html">作物生長與逆境監測</a></li><li><a href="../../agri-spray.html">植保噴灑與飄移防護</a></li><li><a href="../../agri-sow.html">播種、撒肥與粒劑</a></li><li><a href="../../agri-assist.html">驅鳥、授粉與山區運補</a></li><li><a href="../../agri-post.html">產量預估與採收研判</a></li><li><a href="../../agri-disaster.html">災害勘災與損失評估</a></li><li><a href="../../agri-trace.html">農地履歷與品牌行銷</a></li><li><a href="../../agri-service.html">飛防與測繪服務隊</a></li><li><a href="../../agri-chain.html">機具維修供應鏈</a></li></ul></li><li><a href="../../life.html">無人機與生活</a><ul class="sub"><li><a href="../../life-record.html">旅行、風景空拍</a></li><li><a href="../../life-event.html">活動與婚禮紀錄</a></li><li><a href="../../life-deliver.html">山區、偏鄉配送</a></li><li><a href="../../life-patrol.html">巡邏、搜救與勘查</a></li><li><a href="../../life-inspect.html">屋頂、外牆與太陽能巡檢</a></li><li><a href="../../life-site.html">工地進度紀錄</a></li><li><a href="../../life-starter.html">新手空拍入門</a></li><li><a href="../../life-race.html">競速與花式飛行</a></li><li><a href="../../life-edu.html">親子科普課程</a></li></ul></li><li><a href="../../reg.html">法規安全成本</a><ul class="sub"><li><a href="../../reg-law.html">機體登記與飛手證照</a></li><li><a href="../../reg-no-fly.html">禁飛區與申請</a></li><li><a href="../../reg-env.html">噴藥的環境責任</a></li><li><a href="../../reg-weather.html">天氣條件判斷</a></li><li><a href="../../reg-obstacle.html">避障與緊急處置</a></li><li><a href="../../reg-drift.html">藥劑飄移與鄰田爭議</a></li><li><a href="../../reg-cost.html">投入與維持成本</a></li><li><a href="../../reg-model.html">自購、合作社、外包</a></li></ul></li><li><a href="../../future.html">未來永續</a><ul class="sub"><li><a href="../../future-tech.html">技術與產業升級</a></li><li><a href="../../future-auto.html">全自動機場與機隊</a></li><li><a href="../../future-ai.html">AI 農業決策</a></li><li><a href="../../future-sustain.html">減藥減水減碳</a></li><li><a href="../../future-organic.html">有機與坡地保育</a></li></ul></li><li><a href="../../resources.html">案例資源</a><ul class="sub"><li><a href="../../resources-case.html">台灣農業案例</a></li><li><a href="../../resources-oversea.html">國外大型農場做法</a></li><li><a href="../../resources-tools.html">田間作業檢核表</a></li><li><a href="../../resources-training.html">飛手培訓資源</a></li><li><a href="../../resources-terms.html">名詞對照表</a></li></ul></li><li><a href="../../about.html">關於我們</a></li><li><a href="../../contact.html">聯絡我們</a></li><li><a href="../../sitemap.html">知識庫目錄</a></li></ul>
+  </div>
+</div>
+<main><div class="wrap page">
+<aside class="sidebar">
+  <div class="side-head"><span class="bar"></span>屏東培訓班案例</div>
+  <ul class="side-list">
+    <li><a class="side-top" href="../index.html">案例總覽</a></li>
+    <li><a class="side-top" href="../schedule.html">40 日完整課表</a></li>
+    <li><a class="side-top" href="../resources.html">教材與題庫清單</a></li>
+    <li><a class="side-top" href="index.html">專題文章 20 篇</a></li>
+  </ul>
+  <div class="side-head" style="margin-top:22px"><span class="bar"></span>本站分類 · 案例資源</div>
+  <ul class="side-list">
+    <li><a class="side-top" href="../../resources-case.html">台灣農業案例</a></li>
+    <li><a class="side-top" href="../../resources-oversea.html">國外大型農場做法</a></li>
+    <li><a class="side-top" href="../../resources-tools.html">田間作業檢核表</a></li>
+    <li><a class="side-top" href="../../resources-training.html">飛手培訓資源</a></li>
+    <li><a class="side-top" href="../../resources-terms.html">名詞對照表</a></li>
+  </ul>
+</aside>
+<div class="content">
+<nav class="breadcrumb"><a href="../../index.html">首頁</a><span class="sep">›</span><a href="../../resources.html">案例資源</a><span class="sep">›</span><a href="../index.html">屏東培訓班案例</a><span class="sep">›</span><a href="index.html">專題文章</a><span class="sep">›</span><span>學科知識</span></nav>
+<span class="eyebrow">學科知識 · 屏東培訓班專題</span>
+<h1>GPS 與慣性導航哪個可靠：定位、圖傳與避障</h1>
+<div class="article-meta"><span>作者：陳信旭</span><span>分類：學科知識</span><span>更新：2026-11-06</span><span class="chip">#屏東培訓班</span><span class="chip sky">#無人機</span><span class="chip">#學科知識</span></div>
+<p class="lead">「為什麼我的機器在樹下就飄？」「為什麼進隧道後返航會亂？」這些都跟導航系統的特性有關。學科考題問的就是這些特性。</p>
+<figure class="hero"><img src="../../img/cs-computer-room-2.webp" width="1280" height="720" loading="lazy" alt="資訊教室裡的模擬飛行，會刻意練 GPS 訊號不良時的處置。"><figcaption>資訊教室裡的模擬飛行，會刻意練 GPS 訊號不良時的處置。</figcaption></figure>
+<article class="article-body">
+<p>導航與感測這組題目，核心只有一句話：<strong>沒有哪一種導航是完全可靠的</strong>。每一種都有特定弱點，操作人的工作是知道弱點在哪、什麼時候不能依賴它。</p>
+
+<h2>兩種導航，兩種缺點</h2>
+<div class="tablewrap"><table>
+<caption>導航系統的分類與弱點（依題庫）</caption>
+<colgroup><col style="width:26%"><col style="width:32%"><col style="width:42%"></colgroup>
+<thead><tr><th>類型</th><th>例子</th><th>主要缺點</th></tr></thead>
+<tbody>
+<tr><td>非自主導航</td><td>GPS／衛星定位</td><td><strong>易受干擾</strong>（遮蔽、反射、訊號欺騙）</td></tr>
+<tr><td>自主導航</td><td>慣性導航（IMU）</td><td><strong>誤差積累增大</strong>（時間越長漂越多）</td></tr>
+</tbody></table></div>
+<p>這就是為什麼現代飛控要「融合」：短時間靠慣性、長時間靠衛星，中途再用視覺或光流修正。當衛星訊號掉到只剩幾顆時，飛控會自動降級，切到姿態模式——此時機體不會幫你定點，所有漂移都要靠手修正。</p>
+<p>導航系統提供哪些資訊？題庫的答案是<strong>位置、速度、飛行姿態，以上皆是</strong>。</p>
+
+<h2>圖傳的兩種形態</h2>
+<p>遙控無人機的圖傳主要資料傳輸形態分為<strong>類比與數位</strong>。類比圖傳延遲低但畫質與抗干擾較差；數位圖傳畫質好、可加密，但對頻寬與運算要求高。實務上判斷干擾，常常是看畫面出現規律條紋（類比）或整段延遲、馬賽克（數位）。</p>
+
+<h2>運算需求為什麼一直上升</h2>
+<p>題庫問「隨著機載感測器精度和任務複雜度上升，機載處理器的何項需求隨之提高」，答案為<strong>運算需求</strong>。多光譜、熱影像、即時辨識、避障點雲，每一項都在吃算力。這也是農用機越來越像「會飛的電腦」的原因。</p>
+
+<h2>四個容易忽略的感測風險</h2>
+<ul>
+<li><strong>高聳建物旁</strong>：地面障礙物影響風的流動，操作人應特別注意<strong>風速及風向快速變化產生的亂流</strong>。</li>
+<li><strong>資料鏈</strong>：在山谷、金屬結構附近，遙控與圖傳可能同時衰减；返航設定要在起飛前確認為「爬升到安全高度再返航」。</li>
+<li><strong>磁干擾</strong>：鋼構橋梁、基地台附近可能造成指南針異常，起飛前校準與確認機頭方向是基本功。</li>
+<li><strong>視距外</strong>：即使圖傳正常，看不到機體就失去最後一道保險；視距外操作屬需要高級證與許可的排除項目。</li>
+</ul>
+<h2>模擬器的價值就在這裡</h2>
+<p>本案在 9/08、9/09 兩天排了 14 節模擬飛行，學員會在模擬器裡刻意製造「GPS 訊號不良」與「單側風」情境，練習不依賴定點輔助的純手飛。這種練習在實機上成本太高——摔一次就是數千到數萬元。</p>
+
+<h2>把風險變成清單</h2>
+<p>起飛前問：<strong>這裡收得到幾顆衛星、指南針有沒有異常、圖傳延遲是否正常、失去訊號時它會怎麼回來</strong>。四個問題問完，通常就能決定今天要不要飛。</p>
+<div class="callout sky"><span class="ct">判讀原則</span>感測器不會「壞掉給你看」，它只會給你錯的數字。所以養成看趨勢的習慣：同一地點懸停 30 秒，若高度與位置持續緩慢漂移，就是該檢查感測的訊號。</div>
+<p>延伸閱讀：<a href="multirotor-control.html">飛控與 ESC 分工</a>、<a href="aviation-weather.html">氣象條件</a>、<a href="simulator-training.html">模擬器訓練菜單</a>。</p>
+</article>
+<div class="callout sky"><span class="ct">同系列延伸</span><ul style="margin:.4rem 0 0"><li><a href="multirotor-control.html">四軸無人機怎麼飛起來：旋翼、飛控、ESC 與四種姿態</a></li><li><a href="aviation-weather.html">風切、微爆氣流與低空亂流：氣象考題七個重點</a></li><li><a href="simulator-training.html">模擬器練什麼：14 節模擬飛行訓練的菜單</a></li></ul></div>
+<div class="author-box"><b>關於作者</b><p>陳信旭，農翔誌編輯。長期追蹤台灣農用無人機的訓練制度與田間實務，關注「制度怎麼落地、技術怎麼被教會」這兩件事。本文依訓練單位公開課程資料、民航局操作證相關文件與題庫整理，不構成考照或投資建議。</p></div>
+<nav class="prevnext"><a class="pn-prev" href="aviation-weather.html"><span>上一篇</span>風切、微爆氣流與低空亂流：氣象考題七個重點</a><a class="pn-next" href="emergency-procedures.html"><span>下一篇</span>動力失效怎麼辦：飄降比判斷與預防性緊急著陸</a></nav>
+</div></div></main>
+<footer class="site-footer">
+  <div class="footer-in">
+    <div class="footer-brand">
+      <svg class="mark" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="9" fill="#2E7A58"/><path d="M9 22h22" stroke="#E5EFE9" stroke-width="2.4" stroke-linecap="round"/><circle cx="9.5" cy="19" r="3.4" fill="none" stroke="#E5EFE9" stroke-width="2"/><circle cx="9.5" cy="25" r="3.4" fill="none" stroke="#E5EFE9" stroke-width="2"/><circle cx="30.5" cy="19" r="3.4" fill="none" stroke="#E5EFE9" stroke-width="2"/><circle cx="30.5" cy="25" r="3.4" fill="none" stroke="#E5EFE9" stroke-width="2"/></svg>
+      <p>從田間到天空的繁體中文知識庫，專注農用無人機技術、農業產業鏈與日常應用。內容標示作者與更新日期，以可查證的公開資料為基礎，持續提升 E-E-A-T 可信度。</p>
+    </div>
+    <div><h4>認識本站</h4><ul>
+      <li><a href="../../about.html">關於我們</a></li>
+      <li><a href="../../contact.html">聯絡我們</a></li>
+      <li><a href="../../sitemap.html">知識庫目錄</a></li>
+    </ul></div>
+    <div><h4>重要文件</h4><ul>
+      <li><a href="../../privacy.html">隱私政策</a></li>
+      <li><a href="../../disclaimer.html">免責聲明</a></li>
+      <li><a href="../../terms.html">使用條款</a></li>
+    </ul></div>
+    <div><h4>六大支柱</h4><ul>
+      <li><a href="../../tech.html">無人機技術</a></li>
+      <li><a href="../../agri.html">農業產業鏈</a></li>
+      <li><a href="../../life.html">無人機與生活</a></li>
+      <li><a href="../../reg.html">法規安全成本</a></li>
+      <li><a href="../../future.html">未來永續</a></li>
+      <li><a href="../../resources.html">案例資源</a></li>
+    </ul></div>
+  </div>
+  <div class="footer-bottom">
+    <span>© <span id="yr">2026</span> 農翔誌 LipoSow · 知識整理僅供參考，作業前請遵循主管機關法規</span>
+    
+  </div>
+<a class="line-float" href="https://line.me/ti/p/g-FTLSqJAR" target="_blank" rel="noopener" aria-label="加入LINE官方帳號"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M13.1 4.2C8.4 4.2 4.6 7.4 4.6 11.3c0 3.7 3.4 6.8 8 7.3.3.1.8.3.7.7l-.2 1c-.1.3 0 .7.4.6 2.8-1.6 5-4.2 5.9-6.2.3-1 .5-2 .5-3.4 0-3.8-3.8-6.1-7.8-6.1zm-6 7.2h1.9c.2 0 .3-.2.3-.4V7.7c0-.2-.1-.4-.3-.4H7.1c-.2 0-.4.2-.4.4v3.3c0 .2.2.4.4.4zm1.2-3.1h-1v-1h1v1zm2.9 3.1c.2 0 .4-.2.4-.4V7.7c0-.2-.1-.4-.4-.4h-1.9c-.2 0-.3.2-.3.4v3.3c0 .2.1.4.3.4h1.9zm-1.2-3.1h-1v-1h1v1zm4.3 3.1c.2 0 .3-.2.3-.4V7.7c0-.2-.1-.4-.3-.4h-1.9c-.2 0-.4.2-.4.4v3.3c0 .2.2.4.4.4h1.9zm-1.2-3.1h-1v-1h1v1zm2.9.6c.2 0 .4-.2.4-.4v-2.2c0-.2-.2-.4-.4-.4h-1.9c-.2 0-.4.2-.4.4v2.2c0 .2.2.4.4.4h1.9z"/></svg><span>LINE 官方帳號</span></a>
+</footer>
+</body>
+</html>

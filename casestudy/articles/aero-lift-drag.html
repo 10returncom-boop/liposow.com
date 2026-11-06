@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>升力、阻力與速度平方：無人機學科最常考的空氣動力觀念</title>
+<meta name="description" content="用題庫實例拆解升力與阻力都和速度平方成正比、空氣密度與溫度成反比、高度每上升 1000 呎氣壓少約 1 吋汞柱等觀念，並說明為什麼風大時耗電更快。">
+<meta name="keywords" content="無人機 升力 阻力 速度平方, 空氣密度 升力 影響, 高度 1000呎 氣壓 1吋汞柱, 無人機 負載係數, 襟翼 升力, 牛頓第二定律 無人機, 無人機學科 空氣動力">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://liposow.com/casestudy/articles/aero-lift-drag.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="農翔誌 LipoSow">
+<meta property="og:title" content="升力、阻力與速度平方：無人機學科最常考的空氣動力觀念">
+<meta property="og:description" content="用題庫實例拆解升力與阻力都和速度平方成正比、空氣密度與溫度成反比、高度每上升 1000 呎氣壓少約 1 吋汞柱等觀念，並說明為什麼風大時耗電更快。">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:url" content="https://liposow.com/casestudy/articles/aero-lift-drag.html">
+<link rel="icon" type="image/svg+xml" href="">
+<link rel="stylesheet" href="../../assets/css/style.css?v=20261106b">
+<link rel="preconnect" href="https://miaoda.feishu.cn">
+<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Serif+TC:wght@500;700;800&family=Noto+Sans+TC:wght@400;500;700&display=swap">
+<style>
+
+.alist{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:1.2rem 0 1.4rem}
+.alist a{display:block;background:var(--card);border:1px solid var(--line);border-radius:var(--radius-m);padding:14px 16px;text-decoration:none;box-shadow:var(--shadow-s);transition:border-color .15s}
+.alist a:hover{border-color:var(--green-600)}
+.alist .t{font-weight:700;color:var(--ink);font-size:.96rem;line-height:1.45}
+.alist .m{font-size:.78rem;color:var(--muted);margin-top:6px;letter-spacing:.03em}
+.alist .c{font-size:.8rem;color:var(--sky-700);font-weight:700;margin-top:8px}
+.fbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:1rem 0 1.2rem;padding:12px 14px;background:var(--green-50,#F1F7F3);border:1px solid var(--line);border-radius:var(--radius-m)}
+.fbar label{font-size:.85rem;font-weight:700;color:var(--ink-soft)}
+.fbar select{font-size:.95rem;padding:7px 10px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--ink);min-width:180px}
+.fbar .cnt{font-size:.82rem;color:var(--muted);margin-left:auto}
+.hero{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-m);overflow:hidden;box-shadow:var(--shadow-s);margin:1.1rem 0 1.4rem}
+.hero img{width:100%;height:340px;object-fit:cover;object-position:center 40%;display:block}
+.hero figcaption{padding:10px 14px;font-size:.84rem;color:var(--muted)}
+@media (max-width:640px){.alist{grid-template-columns:1fr}.hero img{height:220px}}
+
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "升力、阻力與速度平方：無人機學科最常考的空氣動力觀念", "description": "用題庫實例拆解升力與阻力都和速度平方成正比、空氣密度與溫度成反比、高度每上升 1000 呎氣壓少約 1 吋汞柱等觀念，並說明為什麼風大時耗電更快。", "inLanguage": "zh-Hant", "author": {"@type": "Person", "name": "陳信旭"}, "publisher": {"@type": "Organization", "name": "農翔誌", "url": "https://liposow.com"}, "datePublished": "2026-11-06", "dateModified": "2026-11-06", "mainEntityOfPage": "https://liposow.com/casestudy/articles/aero-lift-drag", "about": [{"@type": "Thing", "name": "學科知識"}, {"@type": "Thing", "name": "遙控無人機操作證訓練"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "首頁", "item": "https://liposow.com/"}, {"@type": "ListItem", "position": 2, "name": "案例資源", "item": "https://liposow.com/resources.html"}, {"@type": "ListItem", "position": 3, "name": "屏東培訓班案例", "item": "https://liposow.com/casestudy/"}, {"@type": "ListItem", "position": 4, "name": "專題文章", "item": "https://liposow.com/casestudy/articles/"}, {"@type": "ListItem", "position": 5, "name": "升力、阻力與速度平方：無人機學科最常考的空氣動力觀念", "item": "https://liposow.com/casestudy/articles/aero-lift-drag"}]}</script>
+</head>
+<body>
+<header class="site-header" id="siteHeader">
+  <div class="nav-inner">
+    <a class="brand" href="../../index.html"><svg class="mark" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="9" fill="#1E5A44"/><path d="M9 22h22" stroke="#E5EFE9" stroke-width="2.4" stroke-linecap="round"/><circle cx="9.5" cy="19" r="3.4" fill="none" stroke="#E5EFE9" stroke-width="2"/><circle cx="9.5" cy="25" r="3.4" fill="none" stroke="#E5EFE9" stroke-width="2"/><circle cx="30.5" cy="19" r="3.4" fill="none" stroke="#E5EFE9" stroke-width="2"/><circle cx="30.5" cy="25" r="3.4" fill="none" stroke="#E5EFE9" stroke-width="2"/></svg><span class="bt"><b>農翔誌 LipoSow</b></span></a>
+    <nav class="main-nav" id="mainNav" aria-label="主要導覽"><div class="nav-item" id="nv-tech"><a href="../../tech.html">無人機技術<span class="caret">▾</span></a><div class="mega"><div class="mcol"><span>硬體設備</span><a href="../../tech-drones.html">農用無人機機型怎麼選</a><a href="../../tech-starter.html">無人機技術怎麼入門</a><a href="../../tech-power.html">電池與動力系統</a><a href="../../tech-nav.html">定位、避障與導航</a></div><div class="mcol"><span>感測與影像</span><a href="../../tech-sensors.html">多光譜、熱影像拍攝</a><a href="../../tech-ai.html">AI 辨識病蟲與缺肥</a><a href="../../tech-cloud.html">雲端資料處理</a></div><div class="mcol"><span>自動飛行</span><a href="../../tech-autopilot.html">自動航線與任務規劃</a><a href="../../tech-variable.html">變量施作與處方圖</a><a href="../../tech-fleet.html">機隊與自動機巢</a></div></div></div><div class="nav-item" id="nv-agri"><a href="../../agri.html">農業產業鏈<span class="caret">▾</span></a><div class="mega"><div class="mcol"><span>種植前</span><a href="../../agri-pre.html">田區勘測與面積量測</a><a href="../../agri-soil.html">土壤分區與種植規劃</a><a href="../../agri-slope.html">山坡地風險評估</a></div><div class="mcol"><span>種植管理中</span><a href="../../agri-monitor.html">作物生長與逆境監測</a><a href="../../agri-spray.html">植保噴灑與飄移防護</a><a href="../../agri-sow.html">播種、撒肥與粒劑</a><a href="../../agri-assist.html">驅鳥、授粉與山區運補</a></div><div class="mcol"><span>收成後與下游</span><a href="../../agri-post.html">產量預估與採收研判</a><a href="../../agri-disaster.html">災害勘災與損失評估</a><a href="../../agri-trace.html">農地履歷與品牌行銷</a></div><div class="mcol"><span>服務生態系</span><a href="../../agri-service.html">飛防與測繪服務隊</a><a href="../../agri-chain.html">機具維修供應鏈</a></div></div></div><div class="nav-item" id="nv-life"><a href="../../life.html">無人機與生活<span class="caret">▾</span></a><div class="mega"><div class="mcol"><span>休閒空拍</span><a href="../../life-record.html">旅行、風景空拍</a><a href="../../life-event.html">活動與婚禮紀錄</a></div><div class="mcol"><span>生活服務</span><a href="../../life-deliver.html">山區、偏鄉配送</a><a href="../../life-patrol.html">巡邏、搜救與勘查</a></div><div class="mcol"><span>檢查與維運</span><a href="../../life-inspect.html">屋頂、外牆與太陽能巡檢</a><a href="../../life-site.html">工地進度紀錄</a></div><div class="mcol"><span>玩樂與學習</span><a href="../../life-starter.html">新手空拍入門</a><a href="../../life-race.html">競速與花式飛行</a><a href="../../life-edu.html">親子科普課程</a></div></div></div><div class="nav-item" id="nv-reg"><a href="../../reg.html">法規安全成本<span class="caret">▾</span></a><div class="mega"><div class="mcol"><span>法規規範</span><a href="../../reg-law.html">機體登記與飛手證照</a><a href="../../reg-no-fly.html">禁飛區與申請</a><a href="../../reg-env.html">噴藥的環境責任</a></div><div class="mcol"><span>作業安全</span><a href="../../reg-weather.html">天氣條件判斷</a><a href="../../reg-obstacle.html">避障與緊急處置</a><a href="../../reg-drift.html">藥劑飄移與鄰田爭議</a></div><div class="mcol"><span>成本與經營</span><a href="../../reg-cost.html">投入與維持成本</a><a href="../../reg-model.html">自購、合作社、外包</a></div></div></div><div class="nav-item" id="nv-future"><a href="../../future.html">未來永續<span class="caret">▾</span></a><div class="mega"><div class="mcol"><span>發展趨勢</span><a href="../../future-tech.html">技術與產業升級</a><a href="../../future-auto.html">全自動機場與機隊</a><a href="../../future-ai.html">AI 農業決策</a></div><div class="mcol"><span>永續農業</span><a href="../../future-sustain.html">減藥減水減碳</a><a href="../../future-organic.html">有機與坡地保育</a></div></div></div><div class="nav-item" id="nv-resources"><a href="../../resources.html">案例資源<span class="caret">▾</span></a><div class="mega"><div class="mcol"><span>實務案例</span><a href="../../resources-case.html">台灣農業案例</a><a href="../../resources-oversea.html">國外大型農場做法</a></div><div class="mcol"><span>工具與資源</span><a href="../../resources-tools.html">田間作業檢核表</a><a href="../../resources-training.html">飛手培訓資源</a><a href="../../resources-terms.html">名詞對照表</a></div><div class="mcol"><span>站內索引</span><a href="../../sitemap.html">知識庫目錄</a></div></div></div><div class="nav-item" id="nv-blog"><a href="../../blog/index.html">翔農氏Blog</a></div></nav>
+        <div class="search-wrap">
+      <input class="search-input" type="search" placeholder="搜尋全站…" autocomplete="off" aria-label="全站搜尋">
+      <div class="search-results" hidden></div>
+    </div>
+<a class="header-cta" href="../../contact.html">聯絡我們</a>
+    <button class="hamburger" id="hamburger" aria-label="開啟選單" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="header-spacer"></div>
+<div class="drawer" id="drawer" aria-hidden="true">
+  <div class="scrim" data-close></div>
+  <div class="panel">
+    <div class="d-head"><span class="serif" style="font-weight:800">農翔誌</span><button class="d-close" data-close aria-label="關閉">×</button></div>
+    <ul class="dl"><li><a href="../../tech.html">無人機技術</a><ul class="sub"><li><a href="../../tech-drones.html">農用無人機機型怎麼選</a></li><li><a href="../../tech-starter.html">無人機技術怎麼入門</a></li><li><a href="../../tech-power.html">電池與動力系統</a></li><li><a href="../../tech-nav.html">定位、避障與導航</a></li><li><a href="../../tech-sensors.html">多光譜、熱影像拍攝</a></li><li><a href="../../tech-ai.html">AI 辨識病蟲與缺肥</a></li><li><a href="../../tech-cloud.html">雲端資料處理</a></li><li><a href="../../tech-autopilot.html">自動航線與任務規劃</a></li><li><a href="../../tech-variable.html">變量施作與處方圖</a></li><li><a href="../../tech-fleet.html">機隊與自動機巢</a></li></ul></li><li><a href="../../agri.html">農業產業鏈</a><ul class="sub"><li><a href="../../agri-pre.html">田區勘測與面積量測</a></li><li><a href="../../agri-soil.html">土壤分區與種植規劃</a></li><li><a href="../../agri-slope.html">山坡地風險評估</a></li><li><a href="../../agri-monitor.html">作物生長與逆境監測</a></li><li><a href="../../agri-spray.html">植保噴灑與飄移防護</a></li><li><a href="../../agri-sow.html">播種、撒肥與粒劑</a></li><li><a href="../../agri-assist.html">驅鳥、授粉與山區運補</a></li><li><a href="../../agri-post.html">產量預估與採收研判</a></li><li><a href="../../agri-disaster.html">災害勘災與損失評估</a></li><li><a href="../../agri-trace.html">農地履歷與品牌行銷</a></li><li><a href="../../agri-service.html">飛防與測繪服務隊</a></li><li><a href="../../agri-chain.html">機具維修供應鏈</a></li></ul></li><li><a href="../../life.html">無人機與生活</a><ul class="sub"><li><a href="../../life-record.html">旅行、風景空拍</a></li><li><a href="../../life-event.html">活動與婚禮紀錄</a></li><li><a href="../../life-deliver.html">山區、偏鄉配送</a></li><li><a href="../../life-patrol.html">巡邏、搜救與勘查</a></li><li><a href="../../life-inspect.html">屋頂、外牆與太陽能巡檢</a></li><li><a href="../../life-site.html">工地進度紀錄</a></li><li><a href="../../life-starter.html">新手空拍入門</a></li><li><a href="../../life-race.html">競速與花式飛行</a></li><li><a href="../../life-edu.html">親子科普課程</a></li></ul></li><li><a href="../../reg.html">法規安全成本</a><ul class="sub"><li><a href="../../reg-law.html">機體登記與飛手證照</a></li><li><a href="../../reg-no-fly.html">禁飛區與申請</a></li><li><a href="../../reg-env.html">噴藥的環境責任</a></li><li><a href="../../reg-weather.html">天氣條件判斷</a></li><li><a href="../../reg-obstacle.html">避障與緊急處置</a></li><li><a href="../../reg-drift.html">藥劑飄移與鄰田爭議</a></li><li><a href="../../reg-cost.html">投入與維持成本</a></li><li><a href="../../reg-model.html">自購、合作社、外包</a></li></ul></li><li><a href="../../future.html">未來永續</a><ul class="sub"><li><a href="../../future-tech.html">技術與產業升級</a></li><li><a href="../../future-auto.html">全自動機場與機隊</a></li><li><a href="../../future-ai.html">AI 農業決策</a></li><li><a href="../../future-sustain.html">減藥減水減碳</a></li><li><a href="../../future-organic.html">有機與坡地保育</a></li></ul></li><li><a href="../../resources.html">案例資源</a><ul class="sub"><li><a href="../../resources-case.html">台灣農業案例</a></li><li><a href="../../resources-oversea.html">國外大型農場做法</a></li><li><a href="../../resources-tools.html">田間作業檢核表</a></li><li><a href="../../resources-training.html">飛手培訓資源</a></li><li><a href="../../resources-terms.html">名詞對照表</a></li></ul></li><li><a href="../../about.html">關於我們</a></li><li><a href="../../contact.html">聯絡我們</a></li><li><a href="../../sitemap.html">知識庫目錄</a></li></ul>
+  </div>
+</div>
+<main><div class="wrap page">
+<aside class="sidebar">
+  <div class="side-head"><span class="bar"></span>屏東培訓班案例</div>
+  <ul class="side-list">
+    <li><a class="side-top" href="../index.html">案例總覽</a></li>
+    <li><a class="side-top" href="../schedule.html">40 日完整課表</a></li>
+    <li><a class="side-top" href="../resources.html">教材與題庫清單</a></li>
+    <li><a class="side-top" href="index.html">專題文章 20 篇</a></li>
+  </ul>
+  <div class="side-head" style="margin-top:22px"><span class="bar"></span>本站分類 · 案例資源</div>
+  <ul class="side-list">
+    <li><a class="side-top" href="../../resources-case.html">台灣農業案例</a></li>
+    <li><a class="side-top" href="../../resources-oversea.html">國外大型農場做法</a></li>
+    <li><a class="side-top" href="../../resources-tools.html">田間作業檢核表</a></li>
+    <li><a class="side-top" href="../../resources-training.html">飛手培訓資源</a></li>
+    <li><a class="side-top" href="../../resources-terms.html">名詞對照表</a></li>
+  </ul>
+</aside>
+<div class="content">
+<nav class="breadcrumb"><a href="../../index.html">首頁</a><span class="sep">›</span><a href="../../resources.html">案例資源</a><span class="sep">›</span><a href="../index.html">屏東培訓班案例</a><span class="sep">›</span><a href="index.html">專題文章</a><span class="sep">›</span><span>學科知識</span></nav>
+<span class="eyebrow">學科知識 · 屏東培訓班專題</span>
+<h1>升力、阻力與速度平方：學科最常考的空氣動力</h1>
+<div class="article-meta"><span>作者：陳信旭</span><span>分類：學科知識</span><span>更新：2026-11-06</span><span class="chip">#屏東培訓班</span><span class="chip sky">#無人機</span><span class="chip">#學科知識</span></div>
+<p class="lead">學科題庫裡有一半的題目繞著同一組關係打轉：升力怎麼來、阻力怎麼變、為什麼同樣的動作在熱天與高山會失手。把這幾條關係弄懂，很多題目就不用背。</p>
+<figure class="hero"><img src="../../img/drone_frame_showcase.webp" width="1280" height="720" loading="lazy" alt="槳葉的角度與轉速，決定同一台機器能產生多少升力。"><figcaption>槳葉的角度與轉速，決定同一台機器能產生多少升力。</figcaption></figure>
+<article class="article-body">
+<p>空氣動力的考題看起來零散，其實圍繞四個量：升力、阻力、速度、密度。先把關係記牢，再回頭看題目，會發現多數選項都能用推的。</p>
+
+<h2>第一條：升力與阻力都和速度平方成正比</h2>
+<p>題庫問「升力和阻力兩者與飛行速度的關係」，答案是<strong>均與飛行速度的平方成正比</strong>。意思是速度變兩倍，升力與阻力變成四倍。</p>
+<p>這條關係解釋了兩個日常現象：</p>
+<ul>
+<li>想用更低轉速維持同高度，就得提高槳葉效率，而不是硬拉油門。</li>
+<li>高速飛行時阻力成長得比速度還快，所以巡航速度快一倍，耗電往往超過一倍。</li>
+</ul>
+<p>另一題問「保持平飛、速度越大時升力與阻力如何變化」，答案是<strong>升力不變、寄生阻力越大</strong>。原因是平飛時升力得維持等於重量，變的是阻力成分——速度越大，寄生阻力（摩擦、形狀）越明顯。</p>
+
+<h2>第二條：密度越高，升力越大</h2>
+<p>題庫：「當空氣密度增加時，對飛機升力的影響？」答案<strong>升力增加</strong>。因為升力與空氣密度成正比。</p>
+<p>而密度又跟溫度、高度反向：</p>
+<ul>
+<li><strong>溫度與密度成反比</strong>（同體積下溫度越高、密度越低）。</li>
+<li><strong>高度每上升 1,000 呎，氣壓約減少 1 吋汞柱</strong>；氣壓降低、密度也降低。</li>
+<li>低壓狀態下同體積氣體的特徵是<strong>密度較低</strong>。</li>
+</ul>
+<div class="callout"><span class="ct">實務翻譯</span>夏天正午的柏油路面、或海拔較高的山區果園，同樣一台滿載的植保機，懸停油門會比清早平地更高、續航更短。這不是機器壞了，是空氣變薄了。</div>
+
+<h2>第三條：升力要克服重量，還要看負載係數</h2>
+<p>題庫定義「負載係數」為<strong>升力與重力的比值</strong>。平飛時約等於 1；轉彎、拉升或閃避時，機體需要更大升力，負載係數上升，結構與動力負擔同步增加。</p>
+<p>這也連到重心題：重心偏移會讓某些馬達必須多出力才能維持姿態，等於局部負載係數被拉高，續航與穩定性一起變差。</p>
+
+<h2>第四條：牛頓三定律怎麼考</h2>
+<ul>
+<li><strong>第二定律</strong>：加速度與所施加的力<strong>成正比</strong>、與質量<strong>成反比</strong>。所以滿載的機器反應就是比空機慢。</li>
+<li><strong>第三定律</strong>：螺旋槳產生的拉力（或噴射推力）使航空器前進，作用力與反作用力成对。</li>
+<li><strong>連續性</strong>：同一時間內流進與流出任一切面的<strong>流體質量</strong>相等——這是螺旋槳為什麼能持續產生推力的基礎。</li>
+</ul>
+
+<h2>第五條：操縱面在做什麼</h2>
+<p>題庫常考的操縱面對應關係，背起來很省時：</p>
+<div class="tablewrap"><table>
+<caption>操縱面與姿態的對應（含容易誤答的細節）</caption>
+<colgroup><col style="width:24%"><col style="width:76%"></colgroup>
+<thead><tr><th>操縱面</th><th>作用</th></tr></thead>
+<tbody>
+<tr><td>副翼</td><td>改變左右<strong>滾轉</strong>；除副翼外，方向舵對滾轉也有影響</td></tr>
+<tr><td>升降舵</td><td>改變<strong>俯仰</strong></td></tr>
+<tr><td>方向舵</td><td>改變<strong>偏航</strong>，並輔助滾轉</td></tr>
+<tr><td>襟翼</td><td>放下時<strong>升力增大</strong>（同時阻力也增加）</td></tr>
+</tbody></table></div>
+
+<h2>把公式變成考場判斷</h2>
+<p>題庫裡有一道經典題：某無人機飄降比 10:1，在距機場 2 公里、高度 1,000 呎、靜風下引擎熄火，正確作法是<strong>判斷高度是否提供足夠飄降距離，足夠才執行飄降返場</strong>。10:1 代表每下降 1 單位可前進 10 單位——1,000 呎約可換 3 公里，對 2 公里是夠的。這種題不是背答案，是算出來的。</p>
+<div class="callout sky"><span class="ct">怎麼練最有效</span>培訓班把這類題目拆成小卷練習（第一卷到第十五卷），每天固定份量。做題時要求自己寫下「為什麼其他三個選項錯」，比只記正解有效得多。</div>
+<p>延伸閱讀：<a href="aero-cg-axis.html">重心與三軸</a>、<a href="multirotor-control.html">多旋翼姿態控制</a>、<a href="../resources.html">教材與題庫清單</a>。</p>
+</article>
+<div class="callout sky"><span class="ct">同系列延伸</span><ul style="margin:.4rem 0 0"><li><a href="aero-cg-axis.html">重心太前或太後會怎樣：三軸、姿態與平衡</a></li><li><a href="multirotor-control.html">四軸無人機怎麼飛起來：旋翼、飛控、ESC 與四種姿態</a></li><li><a href="aviation-weather.html">風切、微爆氣流與低空亂流：氣象考題七個重點</a></li></ul></div>
+<div class="author-box"><b>關於作者</b><p>陳信旭，農翔誌編輯。長期追蹤台灣農用無人機的訓練制度與田間實務，關注「制度怎麼落地、技術怎麼被教會」這兩件事。本文依訓練單位公開課程資料、民航局操作證相關文件與題庫整理，不構成考照或投資建議。</p></div>
+<nav class="prevnext"><a class="pn-prev" href="license-renewal.html"><span>上一篇</span>操作證 3 年到期怎麼辦：換證、體檢與加簽順序</a><a class="pn-next" href="aero-cg-axis.html"><span>下一篇</span>重心太前或太後會怎樣：三軸、姿態與平衡</a></nav>
+</div></div></main>
+<footer class="site-footer">
+  <div class="footer-in">
+    <div class="footer-brand">
+      <svg class="mark" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="9" fill="#2E7A58"/><path d="M9 22h22" stroke="#E5EFE9" stroke-width="2.4" stroke-linecap="round"/><circle cx="9.5" cy="19" r="3.4" fill="none" stroke="#E5EFE9" stroke-width="2"/><circle cx="9.5" cy="25" r="3.4" fill="none" stroke="#E5EFE9" stroke-width="2"/><circle cx="30.5" cy="19" r="3.4" fill="none" stroke="#E5EFE9" stroke-width="2"/><circle cx="30.5" cy="25" r="3.4" fill="none" stroke="#E5EFE9" stroke-width="2"/></svg>
+      <p>從田間到天空的繁體中文知識庫，專注農用無人機技術、農業產業鏈與日常應用。內容標示作者與更新日期，以可查證的公開資料為基礎，持續提升 E-E-A-T 可信度。</p>
+    </div>
+    <div><h4>認識本站</h4><ul>
+      <li><a href="../../about.html">關於我們</a></li>
+      <li><a href="../../contact.html">聯絡我們</a></li>
+      <li><a href="../../sitemap.html">知識庫目錄</a></li>
+    </ul></div>
+    <div><h4>重要文件</h4><ul>
+      <li><a href="../../privacy.html">隱私政策</a></li>
+      <li><a href="../../disclaimer.html">免責聲明</a></li>
+      <li><a href="../../terms.html">使用條款</a></li>
+    </ul></div>
+    <div><h4>六大支柱</h4><ul>
+      <li><a href="../../tech.html">無人機技術</a></li>
+      <li><a href="../../agri.html">農業產業鏈</a></li>
+      <li><a href="../../life.html">無人機與生活</a></li>
+      <li><a href="../../reg.html">法規安全成本</a></li>
+      <li><a href="../../future.html">未來永續</a></li>
+      <li><a href="../../resources.html">案例資源</a></li>
+    </ul></div>
+  </div>
+  <div class="footer-bottom">
+    <span>© <span id="yr">2026</span> 農翔誌 LipoSow · 知識整理僅供參考，作業前請遵循主管機關法規</span>
+    
+  </div>
+<a class="line-float" href="https://line.me/ti/p/g-FTLSqJAR" target="_blank" rel="noopener" aria-label="加入LINE官方帳號"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M13.1 4.2C8.4 4.2 4.6 7.4 4.6 11.3c0 3.7 3.4 6.8 8 7.3.3.1.8.3.7.7l-.2 1c-.1.3 0 .7.4.6 2.8-1.6 5-4.2 5.9-6.2.3-1 .5-2 .5-3.4 0-3.8-3.8-6.1-7.8-6.1zm-6 7.2h1.9c.2 0 .3-.2.3-.4V7.7c0-.2-.1-.4-.3-.4H7.1c-.2 0-.4.2-.4.4v3.3c0 .2.2.4.4.4zm1.2-3.1h-1v-1h1v1zm2.9 3.1c.2 0 .4-.2.4-.4V7.7c0-.2-.1-.4-.4-.4h-1.9c-.2 0-.3.2-.3.4v3.3c0 .2.1.4.3.4h1.9zm-1.2-3.1h-1v-1h1v1zm4.3 3.1c.2 0 .3-.2.3-.4V7.7c0-.2-.1-.4-.3-.4h-1.9c-.2 0-.4.2-.4.4v3.3c0 .2.2.4.4.4h1.9zm-1.2-3.1h-1v-1h1v1zm2.9.6c.2 0 .4-.2.4-.4v-2.2c0-.2-.2-.4-.4-.4h-1.9c-.2 0-.4.2-.4.4v2.2c0 .2.2.4.4.4h1.9z"/></svg><span>LINE 官方帳號</span></a>
+</footer>
+</body>
+</html>
