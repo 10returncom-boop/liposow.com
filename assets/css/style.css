@@ -443,3 +443,25 @@ caption{caption-side:bottom;font-size:.78rem;color:var(--faint);padding:8px;text
 .lb-foot{margin-top:18px;text-align:center}
 .blog-filter{margin-left:auto;display:flex;align-items:center;gap:8px;font-size:.86rem;color:var(--ink-soft)}
 .blog-filter select{font-size:.92rem;padding:6px 10px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--ink)}
+
+/* ==== 文章內頁：正文兩欄 ＋ 相關文章 accordion ==== */
+@media (min-width:1024px){
+  .article-body{column-count:2;column-gap:46px;column-rule:1px solid var(--line)}
+  .article-body > *{break-inside:avoid}
+  .article-body figure,
+  .article-body table,
+  .article-body .tablewrap,
+  .article-body .callout,
+  .article-body pre,
+  .article-body .wide{column-span:all}
+  .article-body > p{text-align:justify}
+}
+.rel-block{margin:38px 0 6px;border-top:1px solid var(--line);padding-top:26px}
+.rel-block h2{font-size:1.1rem;margin:0 0 14px;color:var(--ink)}
+.rel-block .acc-item{min-height:0}
+.rel-block .acc-head{padding:14px 0}
+.rel-block .acc-head .t{font-size:.98rem}
+.rel-block .acc-body-in{padding:0 0 14px}
+.rel-block .acc-body-in p{margin:0 0 10px;font-size:.94rem;line-height:1.8;color:var(--ink-soft)}
+.rel-block .acc-body-in a{color:var(--green-700);font-weight:700;text-decoration:none}
+.rel-block .acc-body-in a:hover{text-decoration:underline}
