@@ -1,0 +1,140 @@
+﻿<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>互動遊戲館 | Arki 無人機課程</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+:root{--primary:#0284c7;--accent:#38bdf8;--bg:#f8f9fc;--card:#fff;--text:#1a1a2e;--muted:#6b7280;--border:#e5e7eb;--radius:16px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Noto Sans TC','Microsoft JhengHei',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;flex-direction:column}
+.header{background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;padding:1.2rem 1.5rem;display:flex;justify-content:space-between;align-items:center;box-shadow:0 4px 20px rgba(0,0,0,.1)}
+.header h1{font-size:1.3rem;display:flex;align-items:center;gap:.5rem}
+.lang-btn{background:rgba(255,255,255,.2);border:none;color:#fff;padding:.4rem .9rem;border-radius:20px;cursor:pointer;font-size:.85rem}
+.lang-btn:hover{background:rgba(255,255,255,.35)}
+.hero{text-align:center;padding:2.5rem 1rem 1.5rem;background:linear-gradient(180deg,rgba(0,0,0,.03),transparent)}
+.hero h2{font-size:1.6rem;color:var(--primary);margin-bottom:.5rem}
+.hero p{color:var(--muted);font-size:.95rem}
+.hero .site-badge{display:inline-block;background:var(--primary);color:#fff;padding:.3rem 1rem;border-radius:20px;font-size:.8rem;margin-bottom:.8rem}
+.main{flex:1;max-width:1000px;width:100%;margin:0 auto;padding:1rem 1rem 2rem}
+.games-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.2rem}
+.game-card{background:var(--card);border-radius:var(--radius);padding:1.5rem;text-decoration:none;color:var(--text);box-shadow:0 4px 16px rgba(0,0,0,.06);transition:.25s;position:relative;overflow:hidden;display:block}
+.game-card:hover{transform:translateY(-4px);box-shadow:0 8px 28px rgba(0,0,0,.12)}
+.game-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--primary),var(--accent))}
+.game-icon{width:56px;height:56px;border-radius:14px;background:linear-gradient(135deg,var(--primary),var(--accent));display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.5rem;margin-bottom:1rem}
+.game-num{position:absolute;top:1rem;right:1.2rem;font-size:2rem;font-weight:900;color:rgba(0,0,0,.06)}
+.game-title{font-size:1.1rem;font-weight:700;margin-bottom:.4rem;color:var(--text)}
+.game-desc{font-size:.85rem;color:var(--muted);line-height:1.5;margin-bottom:1rem}
+.game-arrow{color:var(--primary);font-size:.9rem;opacity:.7}
+.game-card:hover .game-arrow{opacity:1}
+.footer{text-align:center;padding:1.5rem;color:var(--muted);font-size:.85rem;border-top:1px solid var(--border);background:var(--card)}
+.footer a{color:var(--primary);text-decoration:none}
+.back-link{display:inline-flex;align-items:center;gap:.4rem;color:#fff;text-decoration:none;font-size:.85rem;opacity:.9;margin-top:.3rem}
+.back-link:hover{opacity:1}
+@media(max-width:480px){.games-grid{grid-template-columns:1fr}.hero h2{font-size:1.3rem}.main{padding:1rem .8rem}}
+</style>
+</head>
+<body>
+<header class="header">
+  <div>
+    <h1><i class="fas fa-gamepad"></i> <span data-zh="互動遊戲館" data-en="Interactive Arcade">互動遊戲館</span></h1>
+    <a href="../../index.html" class="back-link"><i class="fas fa-arrow-left"></i> <span data-zh="返回網站首頁" data-en="Back to Home">返回網站首頁</span></a>
+  </div>
+  <button class="lang-btn" onclick="toggleLang()">EN</button>
+</header>
+<div class="hero">
+  <span class="site-badge">Arki 無人機課程</span>
+  <h2 data-zh="10 款互動體驗，等你來探索" data-en="10 Interactive Experiences Await You">10 款互動體驗，等你來探索</h2>
+  <p data-zh="透過遊戲化方式深入了解「Arki 無人機課程」" data-en="Explore "Arki 無人機課程" through gamified experiences">透過遊戲化方式深入了解「Arki 無人機課程」</p>
+</div>
+<main class="main">
+  <div class="games-grid">
+    
+        <a href="01_quiz.html" class="game-card">
+          <div class="game-icon"><i class="fas fa-brain"></i></div>
+          <div class="game-num">01</div>
+          <h3 class="game-title" data-zh="主題知識小測驗" data-en="Theme Quiz">主題知識小測驗</h3>
+          <p class="game-desc">測試你對主題的了解程度</p>
+          <div class="game-arrow"><i class="fas fa-arrow-right"></i></div>
+        </a>
+        <a href="02_memory.html" class="game-card">
+          <div class="game-icon"><i class="fas fa-clone"></i></div>
+          <div class="game-num">02</div>
+          <h3 class="game-title" data-zh="翻牌記憶遊戲" data-en="Memory Match">翻牌記憶遊戲</h3>
+          <p class="game-desc">翻牌配對，訓練記憶力</p>
+          <div class="game-arrow"><i class="fas fa-arrow-right"></i></div>
+        </a>
+        <a href="03_timeline.html" class="game-card">
+          <div class="game-icon"><i class="fas fa-stream"></i></div>
+          <div class="game-num">03</div>
+          <h3 class="game-title" data-zh="互動時間軸" data-en="Interactive Timeline">互動時間軸</h3>
+          <p class="game-desc">點擊節點探索重要時刻</p>
+          <div class="game-arrow"><i class="fas fa-arrow-right"></i></div>
+        </a>
+        <a href="04_story.html" class="game-card">
+          <div class="game-icon"><i class="fas fa-book-open"></i></div>
+          <div class="game-num">04</div>
+          <h3 class="game-title" data-zh="滾動動畫敘事" data-en="Scroll Story">滾動動畫敘事</h3>
+          <p class="game-desc">滾動觸發的故事體驗</p>
+          <div class="game-arrow"><i class="fas fa-arrow-right"></i></div>
+        </a>
+        <a href="05_hotspots.html" class="game-card">
+          <div class="game-icon"><i class="fas fa-map-marked-alt"></i></div>
+          <div class="game-num">05</div>
+          <h3 class="game-title" data-zh="點擊探索熱區" data-en="Explore Hotspots">點擊探索熱區</h3>
+          <p class="game-desc">點擊地圖熱區發現知識</p>
+          <div class="game-arrow"><i class="fas fa-arrow-right"></i></div>
+        </a>
+        <a href="06_puzzle.html" class="game-card">
+          <div class="game-icon"><i class="fas fa-puzzle-piece"></i></div>
+          <div class="game-num">06</div>
+          <h3 class="game-title" data-zh="滑動拼圖遊戲" data-en="Sliding Puzzle">滑動拼圖遊戲</h3>
+          <p class="game-desc">3x3滑動拼圖挑戰</p>
+          <div class="game-arrow"><i class="fas fa-arrow-right"></i></div>
+        </a>
+        <a href="07_dialogue.html" class="game-card">
+          <div class="game-icon"><i class="fas fa-comments"></i></div>
+          <div class="game-num">07</div>
+          <h3 class="game-title" data-zh="角色對話模擬器" data-en="Dialogue Simulator">角色對話模擬器</h3>
+          <p class="game-desc">與主題角色互動對話</p>
+          <div class="game-arrow"><i class="fas fa-arrow-right"></i></div>
+        </a>
+        <a href="08_fortune.html" class="game-card">
+          <div class="game-icon"><i class="fas fa-dice"></i></div>
+          <div class="game-num">08</div>
+          <h3 class="game-title" data-zh="隨機籤詩抽取" data-en="Fortune Drawing">隨機籤詩抽取</h3>
+          <p class="game-desc">抽取主題相關名言籤詩</p>
+          <div class="game-arrow"><i class="fas fa-arrow-right"></i></div>
+        </a>
+        <a href="09_flashcards.html" class="game-card">
+          <div class="game-icon"><i class="fas fa-layer-group"></i></div>
+          <div class="game-num">09</div>
+          <h3 class="game-title" data-zh="知識卡片翻轉" data-en="Flashcards">知識卡片翻轉</h3>
+          <p class="game-desc">翻轉卡片學習知識</p>
+          <div class="game-arrow"><i class="fas fa-arrow-right"></i></div>
+        </a>
+        <a href="10_quest.html" class="game-card">
+          <div class="game-icon"><i class="fas fa-key"></i></div>
+          <div class="game-num">10</div>
+          <h3 class="game-title" data-zh="闖關解謎小遊戲" data-en="Puzzle Quest">闖關解謎小遊戲</h3>
+          <p class="game-desc">三關解謎挑戰</p>
+          <div class="game-arrow"><i class="fas fa-arrow-right"></i></div>
+        </a>
+  </div>
+</main>
+<footer class="footer">
+  規劃/設計/開發/行銷：<a href="../../金庸人物與心理學/about.html">張書欣</a>
+</footer>
+<script>
+let lang='zh';
+function toggleLang(){
+  lang=lang==='zh'?'en':'zh';
+  document.querySelectorAll('[data-zh]').forEach(el=>{
+    el.textContent=lang==='zh'?el.dataset.zh:el.dataset.en;
+  });
+  document.querySelector('.lang-btn').textContent=lang==='zh'?'EN':'中';
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>農翔誌｜農業與無人機知識庫</title>
+<meta name="description" content="農翔誌是農業與無人機的繁體中文知識庫，涵蓋農用無人機技術、農業生產產業鏈應用、日常生活延伸、法規安全與永續農業，為農民、飛手與一般讀者提供可依循的實務知識。">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.agrisky.example/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="農翔誌 AgriSky">
+<meta property="og:title" content="農翔誌｜農業與無人機知識庫">
+<meta property="og:description" content="從田間到天空：農用無人機技術、農業產業鏈應用、日常生活延伸與永續農業的繁體中文知識庫。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231E5A44'/%3E%3Cpath d='M18 34h28' stroke='%23F4F6F1' stroke-width='4' stroke-linecap='round'/%3E%3Ccircle cx='16' cy='30' r='5' fill='none' stroke='%23F4F6F1' stroke-width='3'/%3E%3Ccircle cx='16' cy='38' r='5' fill='none' stroke='%23F4F6F1' stroke-width='3'/%3E%3Ccircle cx='48' cy='30' r='5' fill='none' stroke='%23F4F6F1' stroke-width='3'/%3E%3Ccircle cx='48' cy='38' r='5' fill='none' stroke='%23F4F6F1' stroke-width='3'/%3E%3C/svg%3E">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"農翔誌 AgriSky","description":"農業與無人機知識庫","url":"https://www.agrisky.example/","inLanguage":"zh-Hant"}</script>
+<style>
+:root{
+  --green:#1E5A44; --green-dark:#173F30; --green-mid:#2E7A58;
+  --sky:#2E7FA7; --sky-deep:#225E80; --sky-light:#E9F1F6;
+  --amber:#C98A2B; --amber-light:#FBF2DE;
+  --ink:#223029; --muted:#5A6B61; --faint:#8A978F;
+  --bg:#F4F6F1; --card:#FFFFFF; --line:#E1E7E0; --line-strong:#CBD6CC;
+  --serif:Georgia,"Times New Roman","PMingLiU","新細明體","Noto Serif TC",serif;
+  --sans:"PingFang TC","Microsoft JhengHei","Noto Sans TC","Segoe UI",system-ui,sans-serif;
+  --shadow:0 10px 30px rgba(30,50,38,.08);
+  --radius:14px;
+  --header-h:64px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.75;font-size:17px}
+img,svg{display:block;max-width:100%}
+a{color:var(--green);text-decoration:none}
+a:hover{color:var(--sky-deep)}
+h1,h2,h3,.serif{font-family:var(--serif);line-height:1.35;color:var(--ink);font-weight:600}
+h1{font-size:clamp(1.8rem,4vw,2.6rem)}
+h2{font-size:clamp(1.4rem,2.6vw,1.9rem);margin-bottom:.6rem}
+h3{font-size:1.18rem}
+p{margin-bottom:.9rem}
+ul,ol{padding-left:1.3rem;margin-bottom:.9rem}
+.eyebrow{font-size:.82rem;letter-spacing:.14em;color:var(--sky);font-weight:600}
+.muted{color:var(--muted)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+
+/* ===== Header ===== */
+.site-header{position:fixed;top:0;left:0;right:0;z-index:80;height:var(--header-h);background:rgba(244,246,241,.92);backdrop-filter:saturate(1.2) blur(6px);border-bottom:1px solid var(--line)}
+.nav-inner{max-width:1180px;margin:0 auto;height:100%;padding:0 20px;display:flex;align-items:center;gap:14px}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-weight:700;font-size:1.22rem;color:var(--ink);margin-right:auto}
+.brand .logo{width:38px;height:38px;flex:none}
+.brand small{display:block;font-family:var(--sans);font-weight:400;font-size:.68rem;color:var(--muted);letter-spacing:.08em}
+.main-nav{display:flex;gap:2px}
+.nav-item{position:relative}
+.nav-item>a{display:block;padding:10px 13px;border-radius:9px;color:var(--ink);font-size:.98rem;font-weight:500;transition:background .15s,color .15s}
+.nav-item>a:hover,.nav-item.open>a{background:#fff;color:var(--green);box-shadow:var(--shadow)}
+.nav-item>a .caret{display:inline-block;margin-left:5px;font-size:.7em;color:var(--faint)}
+.contact-btn{margin-left:6px;flex:none;background:var(--green);color:#fff !important;padding:9px 16px;border-radius:9px;font-size:.95rem;font-weight:600}
+.contact-btn:hover{background:var(--green-dark)}
+.mega{position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);min-width:720px;max-width:860px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px;display:none;grid-template-columns:1fr 1fr;gap:4px 20px}
+.nav-item.open .mega{display:grid}
+.mega .mcol{border-left:3px solid var(--sky-light);padding-left:14px;margin-bottom:2px}
+.mega .mcol>span{font-size:.78rem;letter-spacing:.1em;color:var(--sky);font-weight:700;display:block;margin-bottom:4px}
+.mega a{display:block;padding:7px 4px;color:var(--ink);font-size:.94rem;border-radius:6px}
+.mega a:hover{background:var(--sky-light);color:var(--sky-deep)}
+.mega a .tag{font-size:.72rem;color:var(--faint);margin-left:6px}
+.mega a.wip{color:var(--muted);cursor:default}
+.hamburger{display:none;width:44px;height:44px;flex:none;background:none;border:1px solid var(--line-strong);border-radius:9px;cursor:pointer;position:relative}
+.hamburger span{display:block;width:20px;height:2px;background:var(--ink);margin:5px auto}
+.header-spacer{height:var(--header-h)}
+
+/* ===== Drawer (mobile nav + sidebar) ===== */
+.drawer{position:fixed;inset:0;z-index:90;pointer-events:none}
+.drawer .scrim{position:absolute;inset:0;background:rgba(20,30,25,.45);opacity:0;transition:opacity .2s}
+.drawer.open{pointer-events:auto}
+.drawer.open .scrim{opacity:1}
+.drawer .panel{position:absolute;top:0;bottom:0;left:0;width:min(86vw,360px);background:var(--bg);transform:translateX(-102%);transition:transform .24s ease;overflow-y:auto;padding:16px 18px 40px}
+.drawer.open .panel{transform:none}
+.drawer .d-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.drawer .d-close{width:40px;height:40px;border:1px solid var(--line-strong);border-radius:9px;background:none;font-size:1.3rem;cursor:pointer;color:var(--ink)}
+.drawer .dl{list-style:none;padding:0}
+.drawer .dl>li>a{display:block;padding:10px 8px;color:var(--ink);font-weight:600;border-bottom:1px solid var(--line)}
+.drawer .dl .sub{padding-left:14px}
+.drawer .dl .sub a{font-weight:400;font-size:.95rem;padding:8px 8px;border-bottom:none}
+
+/* ===== Layout: sidebar + content ===== */
+.page{display:grid;grid-template-columns:272px 1fr;gap:34px;align-items:start;padding:34px 0 60px}
+.sidebar{position:sticky;top:calc(var(--header-h) + 18px)}
+.side-head{font-size:.8rem;letter-spacing:.12em;color:var(--muted);font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.side-head .bar{width:4px;height:16px;background:var(--amber);border-radius:2px}
+.side-list{list-style:none;padding:0;border:1px solid var(--line);border-radius:var(--radius);background:#fff;overflow:hidden}
+.side-list li{border-bottom:1px solid var(--line)}
+.side-list li:last-child{border-bottom:none}
+.side-top{display:block;padding:11px 14px;color:var(--ink);font-weight:600;font-size:.97rem}
+.side-top .plus{float:right;color:var(--faint);transition:transform .2s}
+.side-list li.open>.side-top .plus{transform:rotate(45deg)}
+.side-children{list-style:none;padding:0 0 6px;display:none;background:var(--bg)}
+.side-list li.open>.side-children{display:block}
+.side-children a{display:block;padding:8px 14px 8px 24px;color:var(--ink);font-size:.92rem;border-left:2px solid transparent}
+.side-children a:hover{color:var(--green);border-left-color:var(--green)}
+.side-children a.here{color:var(--green);border-left-color:var(--green);background:var(--sky-light);font-weight:600}
+.side-wip{color:var(--muted)}
+
+.content{min-width:0}
+.breadcrumb{font-size:.84rem;color:var(--muted);margin-bottom:18px}
+.breadcrumb a{color:var(--muted)}
+.breadcrumb a:hover{color:var(--green)}
+.breadcrumb .sep{margin:0 7px;color:var(--faint)}
+
+/* ===== Hero ===== */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line);background:
+  radial-gradient(1200px 420px at 78% -10%,rgba(46,127,167,.16),transparent 60%),
+  linear-gradient(180deg,#E7EFE9,var(--bg))}
+.hero-in{position:relative;max-width:1180px;margin:0 auto;padding:70px 20px 66px;display:grid;grid-template-columns:1.15fr .85fr;gap:30px;align-items:center}
+.hero h1{margin:.4rem 0 1rem}
+.hero .lede{font-size:1.12rem;color:var(--muted);max-width:56ch}
+.hero .facts{display:flex;flex-wrap:wrap;gap:22px;margin-top:22px}
+.hero .fact .n{font-family:var(--serif);font-size:1.6rem;font-weight:700;color:var(--green)}
+.hero .fact .l{font-size:.82rem;color:var(--muted)}
+.hero-art{position:relative;height:340px}
+.hero-art .sky{position:absolute;inset:0;border-radius:18px;background:linear-gradient(180deg,#BFDBEA,#E8F1F6);overflow:hidden;box-shadow:var(--shadow)}
+.hero-art .sun{position:absolute;top:26px;right:40px;width:64px;height:64px;border-radius:50%;background:var(--amber-light);border:3px solid #EFD9A8}
+.hero-art .field{position:absolute;left:0;right:0;bottom:0;height:52%;background:
+  repeating-linear-gradient(115deg,rgba(30,90,68,.9) 0 22px,rgba(38,112,84,.9) 22px 26px);
+  border-radius:0 0 18px 18px}
+.hero-art .field:before{content:"";position:absolute;left:0;right:0;top:-16px;height:18px;background:repeating-linear-gradient(90deg,rgba(255,255,255,.35) 0 14px,transparent 14px 18px)}
+.hero-art .drone{position:absolute;left:50%;top:38%;transform:translate(-50%,-50%);width:86px;color:var(--green-dark);filter:drop-shadow(0 6px 8px rgba(20,40,30,.25))}
+.hero-art .spray{position:absolute;left:50%;top:56%;transform:translateX(-50%);width:120px;color:rgba(46,127,167,.55)}
+.hero-art .path{position:absolute;left:12%;top:20%;right:20%;height:2px;background:dashed rgba(34,80,128,.35);border-top:2px dashed rgba(34,80,128,.35)}
+.cta-row{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:10px;font-weight:600;font-size:.98rem;cursor:pointer;border:none}
+.btn-primary{background:var(--green);color:#fff}
+.btn-primary:hover{background:var(--green-dark)}
+.btn-ghost{background:#fff;color:var(--ink);border:1px solid var(--line-strong)}
+.btn-ghost:hover{border-color:var(--green);color:var(--green)}
+
+/* ===== Sections ===== */
+.section{padding:52px 0}
+.section-head{max-width:760px;margin-bottom:28px}
+.section-head .eyebrow{margin-bottom:6px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);display:flex;flex-direction:column;transition:transform .15s,border-color .15s}
+.card:hover{transform:translateY(-3px);border-color:var(--line-strong)}
+.card .ic{width:46px;height:46px;border-radius:11px;background:var(--sky-light);color:var(--sky-deep);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.card .ic.green{background:#E6F0EA;color:var(--green)}
+.card .ic.amber{background:var(--amber-light);color:var(--amber)}
+.card h3{margin-bottom:6px}
+.card p{font-size:.93rem;color:var(--muted);flex:1}
+.card .more{margin-top:14px;font-size:.9rem;font-weight:600;color:var(--green)}
+.card .more .tag{font-weight:400;color:var(--faint)}
+
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.step{position:relative;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px}
+.step .no{font-family:var(--serif);font-weight:700;font-size:1.5rem;color:var(--sky);margin-bottom:8px}
+.step h3{font-size:1.02rem;margin-bottom:6px}
+.step p{font-size:.9rem;color:var(--muted)}
+
+.band{background:var(--green);color:#EAF3EE;border-radius:18px;padding:34px 28px;display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+.band h2{color:#fff;margin-bottom:.4rem}
+.band p{color:#CFE0D6;font-size:.96rem}
+.band .btn{flex:none;background:#fff;color:var(--green)}
+
+/* ===== Pillar hub page ===== */
+.lead{font-size:1.08rem;color:var(--muted);max-width:70ch;margin-bottom:26px}
+.article-block{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px;margin-top:22px}
+.article-block h2{font-size:1.3rem;border-left:4px solid var(--amber);padding-left:12px}
+.article-block h3{margin-top:1.2rem;margin-bottom:.3rem}
+.article-block .meta{display:flex;flex-wrap:wrap;gap:14px;font-size:.83rem;color:var(--muted);border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:16px}
+.author-box{display:flex;gap:14px;background:var(--sky-light);border-radius:var(--radius);padding:16px;margin-top:22px}
+.author-box .av{width:48px;height:48px;flex:none;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:700}
+.author-box b{display:block}
+.author-box p{font-size:.86rem;color:var(--muted);margin:0}
+
+.callout{background:var(--amber-light);border-left:4px solid var(--amber);border-radius:10px;padding:14px 16px;margin:14px 0;font-size:.95rem}
+.tip-list{list-style:none;padding:0}
+.tip-list li{padding:8px 0 8px 26px;position:relative;border-bottom:1px solid var(--line)}
+.tip-list li:last-child{border-bottom:none}
+.tip-list li:before{content:"";position:absolute;left:6px;top:17px;width:8px;height:8px;border-radius:50%;background:var(--green)}
+
+/* ===== Static pages ===== */
+.page-narrow{max-width:820px;margin:0 auto;padding:46px 20px 60px}
+.page-narrow h1{margin-bottom:10px}
+.legal h2{font-size:1.15rem;margin-top:26px;color:var(--green-dark)}
+.legal p,.legal li{font-size:.97rem;color:#33443B}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.field label{display:block;font-size:.86rem;color:var(--muted);margin-bottom:4px}
+.field input,.field textarea,.field select{width:100%;padding:11px 13px;border:1px solid var(--line-strong);border-radius:9px;font-family:var(--sans);font-size:1rem;background:#fff}
+.field textarea{min-height:130px;resize:vertical}
+.form-note{font-size:.84rem;color:var(--faint);margin-top:8px}
+.sitemap-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.sitemap-block{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px}
+.sitemap-block h2{font-size:1.08rem;border-left:4px solid var(--sky);padding-left:10px;margin-bottom:10px}
+.sitemap-block ul{list-style:none;padding:0}
+.sitemap-block li{padding:7px 0;border-bottom:1px dashed var(--line)}
+.sitemap-block li:last-child{border-bottom:none}
+.sitemap-block .wip{color:var(--faint)}
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px}
+.team{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;text-align:center}
+.team .av{width:64px;height:64px;margin:0 auto 10px;border-radius:50%;background:var(--green-mid);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:700;font-size:1.3rem}
+.team h3{font-size:1rem;margin-bottom:2px}
+.team .role{font-size:.8rem;color:var(--sky);margin-bottom:8px}
+.team p{font-size:.85rem;color:var(--muted);margin:0}
+
+/* ===== Footer ===== */
+.site-footer{background:var(--green-dark);color:#CFE0D6;margin-top:60px}
+.footer-in{max-width:1180px;margin:0 auto;padding:46px 20px 26px;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:30px}
+.footer-in h4{color:#fff;font-size:.95rem;margin-bottom:12px}
+.footer-in ul{list-style:none;padding:0}
+.footer-in li{margin-bottom:8px}
+.footer-in a{color:#CFE0D6}
+.footer-in a:hover{color:#fff}
+.footer-brand .logo{width:44px;height:44px;margin-bottom:10px}
+.footer-brand p{font-size:.88rem;color:#A8C4B6}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.14);max-width:1180px;margin:0 auto;padding:16px 20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.82rem;color:#A8C4B6}
+
+.view{display:none}
+.view.active{display:block}
+#view-home{display:block}
+body.show-home #view-home,body.show-home #view-tech{display:block}
+
+/* ===== 行動端斷點 ===== */
+@media (max-width:600px){
+  .nav-inner{padding:0 12px;gap:8px}
+  .main-nav,.contact-btn{display:none}
+  .hamburger{display:block}
+  .hero-in{grid-template-columns:1fr;padding:44px 16px 40px}
+  .hero-art{height:auto;min-height:210px;margin-top:8px}
+  .facts{gap:16px}
+  .cards{grid-template-columns:1fr !important}
+  .steps{grid-template-columns:1fr}
+  .team-grid{grid-template-columns:1fr}
+  .sitemap-grid{grid-template-columns:1fr}
+  .form-grid{grid-template-columns:1fr}
+  .footer-in{grid-template-columns:1fr;gap:24px}
+  .page{grid-template-columns:1fr;gap:0}
+  .sidebar{display:none}
+  .band{flex-direction:column;align-items:flex-start}
+  h1{font-size:1.6rem}
+  .section{padding:40px 0}
+  .breadcrumb{margin-bottom:12px}
+}
+</style>
+</head>
+<body>
+<header class="site-header" id="siteHeader">
+  <div class="nav-inner">
+    <a class="brand" href="#home" data-route>
+      <svg class="logo" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#1E5A44"/><path d="M18 34h28" stroke="#F4F6F1" stroke-width="4" stroke-linecap="round"/><circle cx="16" cy="30" r="5" fill="none" stroke="#F4F6F1" stroke-width="3"/><circle cx="16" cy="38" r="5" fill="none" stroke="#F4F6F1" stroke-width="3"/><circle cx="48" cy="30" r="5" fill="none" stroke="#F4F6F1" stroke-width="3"/><circle cx="48" cy="38" r="5" fill="none" stroke="#F4F6F1" stroke-width="3"/></svg>
+      <span>農翔誌<small>農業與無人機知識庫</small></span>
+    </a>
+    <nav class="main-nav" id="mainNav" aria-label="主要導覽">
+      <div class="nav-item"><a href="#tech" data-route>無人機技術<span class="caret">▾</span></a>
+        <div class="mega">
+          <div class="mcol"><span>硬體設備</span>
+            <a href="#tech-drones" data-route>農用無人機機型分類</a>
+            <a href="#tech-power" data-route>電池與動力系統</a>
+            <a href="#tech-nav" data-route>定位、避障與導航</a>
+            <a href="#tech-rig" data-route>噴藥、撒料執行配件</a>
+          </div>
+          <div class="mcol"><span>感測與影像</span>
+            <a href="#tech-sensors" data-route>多光譜、熱影像拍攝</a>
+            <a href="#tech-ai" data-route>AI 辨識病蟲與缺肥</a>
+            <a href="#tech-cloud" data-route>雲端資料處理</a>
+          </div>
+          <div class="mcol"><span>自動飛行</span>
+            <a href="#tech-autopilot" data-route>自動航線與任務規劃</a>
+            <a href="#tech-variable" data-route>變量施作與處方圖</a>
+            <a href="#tech-fleet" data-route>機隊與自動機巢</a>
+          </div>
+          <div class="mcol"><span>學習入口</span>
+            <a href="#tech-starter" data-route>無人機技術怎麼入門</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item"><a href="#agri" data-route>農業產業鏈<span class="caret">▾</span></a>
+        <div class="mega">
+          <div class="mcol"><span>種植前</span>
+            <a href="#agri-pre" data-route>田區勘測與面積量測</a>
+            <a href="#agri-soil" data-route>土壤分區與種植規劃</a>
+            <a href="#agri-slope" data-route>山坡地風險評估</a>
+          </div>
+          <div class="mcol"><span>種植管理中</span>
+            <a href="#agri-monitor" data-route>作物生長與逆境監測</a>
+            <a href="#agri-spray" data-route>植保噴灑與飄移防護</a>
+            <a href="#agri-sow" data-route>播種、撒肥與粒劑</a>
+            <a href="#agri-assist" data-route>驅鳥、授粉與山區運補</a>
+          </div>
+          <div class="mcol"><span>收成後與下游</span>
+            <a href="#agri-post" data-route>產量預估與採收研判</a>
+            <a href="#agri-disaster" data-route>災害勘災與損失評估</a>
+            <a href="#agri-trace" data-route>農地履歷與品牌行銷</a>
+          </div>
+          <div class="mcol"><span>服務生態系</span>
+            <a href="#agri-service" data-route>飛防與測繪服務隊</a>
+            <a href="#agri-chain" data-route>機具維修供應鏈</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item"><a href="#life" data-route>無人機與生活<span class="caret">▾</span></a>
+        <div class="mega">
+          <div class="mcol"><span>休閒空拍</span>
+            <a href="#life-record" data-route>旅行、風景空拍</a>
+            <a href="#life-event" data-route>活動與婚禮紀錄</a>
+          </div>
+          <div class="mcol"><span>生活服務</span>
+            <a href="#life-deliver" data-route>山區、偏鄉配送</a>
+            <a href="#life-patrol" data-route>巡邏、搜救與勘查</a>
+          </div>
+          <div class="mcol"><span>檢查與維運</span>
+            <a href="#life-inspect" data-route>屋頂、外牆與太陽能巡檢</a>
+            <a href="#life-site" data-route>工地進度紀錄</a>
+          </div>
+          <div class="mcol"><span>玩樂與學習</span>
+            <a href="#life-starter" data-route>新手空拍入門</a>
+            <a href="#life-race" data-route>競速與花式飛行</a>
+            <a href="#life-edu" data-route>親子科普課程</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item"><a href="#reg" data-route>法規、安全與成本<span class="caret">▾</span></a>
+        <div class="mega">
+          <div class="mcol"><span>法規規範</span>
+            <a href="#reg-law" data-route>機體登記與飛手證照</a>
+            <a href="#reg-no-fly" data-route>禁飛區與申請</a>
+            <a href="#reg-env" data-route>噴藥的環境責任</a>
+          </div>
+          <div class="mcol"><span>作業安全</span>
+            <a href="#reg-weather" data-route>天氣條件判斷</a>
+            <a href="#reg-obstacle" data-route>避障與緊急處置</a>
+            <a href="#reg-drift" data-route>藥劑飄移與鄰田爭議</a>
+          </div>
+          <div class="mcol"><span>成本與經營</span>
+            <a href="#reg-cost" data-route>投入與維持成本</a>
+            <a href="#reg-model" data-route>自購、合作社、外包</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item"><a href="#future" data-route>未來與永續<span class="caret">▾</span></a>
+        <div class="mega">
+          <div class="mcol"><span>發展趨勢</span>
+            <a href="#future-tech" data-route>技術與產業升級</a>
+            <a href="#future-auto" data-route>全自動機場與機隊</a>
+            <a href="#future-ai" data-route>AI 農業決策</a>
+          </div>
+          <div class="mcol"><span>永續農業</span>
+            <a href="#future-sustain" data-route>減藥減水減碳</a>
+            <a href="#future-organic" data-route>有機與坡地保育</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item"><a href="#resources" data-route>案例與資源<span class="caret">▾</span></a>
+        <div class="mega">
+          <div class="mcol"><span>實務案例</span>
+            <a href="#resources-case" data-route>台灣農業案例</a>
+            <a href="#resources-oversea" data-route>國外大型農場做法</a>
+          </div>
+          <div class="mcol"><span>工具與資源</span>
+            <a href="#resources-tools" data-route>作業檢核表</a>
+            <a href="#resources-training" data-route>飛手培訓資源</a>
+            <a href="#resources-terms" data-route>名詞對照表</a>
+          </div>
+          <div class="mcol"><span>站內索引</span>
+            <a href="#sitemap" data-route>知識庫目錄</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <a class="contact-btn" href="#contact" data-route>聯絡我們</a>
+    <button class="hamburger" id="hamburger" aria-label="開啟選單" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="header-spacer"></div>
+
+<!-- ===== Mobile drawer ===== -->
+<div class="drawer" id="drawer" aria-hidden="true">
+  <div class="scrim" data-close></div>
+  <div class="panel">
+    <div class="d-head"><span class="serif" style="font-weight:700">農翔誌</span><button class="d-close" data-close aria-label="關閉">×</button></div>
+    <ul class="dl" id="drawerList"></ul>
+  </div>
+</div>
+
+<!-- ===== MAIN ===== -->
+<main id="main">
+  <!-- 首頁（Home） -->
+  <section class="view" id="view-home">
+    <div class="hero">
+      <div class="hero-in">
+        <div>
+          <span class="eyebrow">從田間到天空</span>
+          <h1>農業遇上無人機，<br>把辛苦變成分寸。</h1>
+          <p class="lede">農翔誌是一個繁體中文的農業與無人機知識庫。我們把「無人機技術」與「農業生產產業鏈」接在一起，說明機器如何補上勞力、地形與資源的缺口——也延伸到日常生活，讓新手看得懂、用得起來。</p>
+          <div class="facts">
+            <div class="fact"><div class="n">6+</div><div class="l">主題支柱分類</div></div>
+            <div class="fact"><div class="n">24+</div><div class="l">知識條目持續擴充</div></div>
+            <div class="fact"><div class="n">繁體</div><div class="l">台灣實務導向</div></div>
+          </div>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#tech" data-route>開始讀無人機技術</a>
+            <a class="btn btn-ghost" href="#agri" data-route>看農業產業鏈應用</a>
+          </div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="sky"><div class="sun"></div><div class="path"></div>
+            <svg class="drone" viewBox="0 0 96 64"><path d="M8 40h80" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="10" cy="34" r="9" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="10" cy="46" r="9" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="86" cy="34" r="9" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="86" cy="46" r="9" fill="none" stroke="currentColor" stroke-width="3"/><rect x="38" y="18" width="20" height="12" rx="3" fill="currentColor"/><path d="M44 30l-3 8h14l-3-8" fill="currentColor"/></svg>
+            <svg class="spray" viewBox="0 0 120 40"><path d="M12 26h96" stroke="currentColor" stroke-width="2" stroke-dasharray="6 6" stroke-linecap="round"/><path d="M34 26l6-14h22l6 14M30 30h36v6H30z" fill="currentColor" opacity=".85"/></svg>
+            <div class="field"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">六大主題支柱</span>
+          <h2>你想先從哪裡認識無人機？</h2>
+          <p class="muted">本站採「權重金字塔」的資訊架構：首頁只放六大支柱入口，深入內容由各支柱頁面與側邊欄承接，方便你沿著分類一步步往下讀。</p>
+        </div>
+        <div class="cards" id="pillarCards"><!-- JS renders --></div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">怎麼開始</span>
+          <h2>農用無人機上手四步</h2>
+        </div>
+        <div class="steps">
+          <div class="step"><div class="no">01</div><h3>看懂機型</h3><p>先分清楚「植保噴灑型」與「測繪空拍型」的差異，再決定用途。</p></div>
+          <div class="step"><div class="no">02</div><h3>查法規</h3><p>確認機體重量、登記與證照門檻，以及你所在區域的禁飛範圍。</p></div>
+          <div class="step"><div class="no">03</div><h3>練操作</h3><p>先在空曠處練起降與航線，再依氣象與作物時序安排任務。</p></div>
+          <div class="step"><div class="no">04</div><h3>看數據</h3><p>把空拍影像接回田間管理，形成「拍攝→分析→施作」的閉環。</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0">
+      <div class="wrap">
+        <div class="band">
+          <div style="flex:1;min-width:220px">
+            <h2>需要協助導入或外包噴藥？</h2>
+            <p>無論你是農民、飛手，還是想認識無人機的讀者，都可以與我們聯繫。本站不代購、不代飛，僅提供知識整理與諮詢指引。</p>
+          </div>
+          <a class="btn btn-ghost" href="#contact" data-route>聯絡我們</a>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <!-- 支柱／文章／靜態頁：由 JS 依路由渲染 -->
+  <section class="view" id="view-render">
+    <div class="wrap page">
+      <aside class="sidebar" id="sidebarWrap"></aside>
+      <article class="content" id="renderContent"></article>
+    </div>
+  </section>
+
+  <!-- sitemap 目錄：靜態 -->
+  <section class="view" id="view-sitemap"><div id="sitemapMount"></div></section>
+  <!-- 聯繫表單頁（含表單）靜態 -->
+  <section class="view" id="view-contact"><div id="contactMount"></div></section>
+</main>
+
+<!-- ===== Footer ===== -->
+<footer class="site-footer">
+  <div class="footer-in">
+    <div class="footer-brand">
+      <svg class="logo" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#2E7A58"/><path d="M18 34h28" stroke="#F4F6F1" stroke-width="4" stroke-linecap="round"/><circle cx="16" cy="30" r="5" fill="none" stroke="#F4F6F1" stroke-width="3"/><circle cx="16" cy="38" r="5" fill="none" stroke="#F4F6F1" stroke-width="3"/><circle cx="48" cy="30" r="5" fill="none" stroke="#F4F6F1" stroke-width="3"/><circle cx="48" cy="38" r="5" fill="none" stroke="#F4F6F1" stroke-width="3"/></svg>
+      <p>從田間到天空的繁體中文知識庫，專注於農用無人機技術、農業產業鏈與日常應用，並以 E-E-A-T 原則持續補充可查證、有作者的內容。</p>
+    </div>
+    <div>
+      <h4>認識本站</h4>
+      <ul>
+        <li><a href="#about" data-route>關於我們</a></li>
+        <li><a href="#contact" data-route>聯絡我們</a></li>
+        <li><a href="#sitemap" data-route>知識庫目錄</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>重要文件</h4>
+      <ul>
+        <li><a href="#privacy" data-route>隱私政策</a></li>
+        <li><a href="#disclaimer" data-route>免責聲明</a></li>
+        <li><a href="#terms" data-route>使用條款</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>熱門支柱</h4>
+      <ul>
+        <li><a href="#tech" data-route>無人機技術</a></li>
+        <li><a href="#agri" data-route>農業產業鏈應用</a></li>
+        <li><a href="#life" data-route>無人機與日常生活</a></li>
+        <li><a href="#future" data-route>未來發展與永續</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 農翔誌 AgriSky · 知識整理僅供參考，作業前請遵循主管機關法規</span>
+    <span>本網站為示範知識庫（Example Domain）</span>
+  </div>
+</footer>
+
+<script>
+/* ============ 內容資料 ============ */
+const SITE = { brand:"農翔誌 AgriSky", home:"https://www.agrisky.example/" };
+
+/* 支柱定義：用於首頁卡片、側邊欄、麵包屑、MegaMenu 語意共用 */
+const PILLARS = {
+  tech:{ id:"tech", no:"01", name:"無人機技術", tag:"技術基礎", desc:"從硬體、感測、AI 到自動飛行，建立農用無人機的技術底子。",
+    children:[
+      {id:"tech", name:"技術總覽"},
+      {id:"tech-drones", name:"農用無人機機型分類"},
+      {id:"tech-power", name:"電池與動力系統"},
+      {id:"tech-nav", name:"定位、避障與導航"},
+      {id:"tech-rig", name:"噴藥、撒料執行配件"},
+      {id:"tech-sensors", name:"多光譜、熱影像拍攝"},
+      {id:"tech-ai", name:"AI 辨識病蟲與缺肥"},
+      {id:"tech-cloud", name:"雲端資料處理"},
+      {id:"tech-autopilot", name:"自動航線與任務規劃"},
+      {id:"tech-variable", name:"變量施作與處方圖"},
+      {id:"tech-fleet", name:"機隊與自動機巢"},
+      {id:"tech-starter", name:"技術怎麼入門"}
+    ]},
+  agri:{ id:"agri", no:"02", name:"農業產業鏈應用", tag:"實務應用", desc:"沿產前、產中、產後三大環節，看無人機如何補上人力與地形的缺口。",
+    children:[
+      {id:"agri", name:"產業鏈總覽"},
+      {id:"agri-pre", name:"田區勘測與面積量測"},
+      {id:"agri-soil", name:"土壤分區與種植規劃"},
+      {id:"agri-slope", name:"山坡地風險評估"},
+      {id:"agri-monitor", name:"作物生長與逆境監測"},
+      {id:"agri-spray", name:"植保噴灑與飄移防護"},
+      {id:"agri-sow", name:"播種、撒肥與粒劑"},
+      {id:"agri-assist", name:"驅鳥、授粉與山區運補"},
+      {id:"agri-post", name:"產量預估與採收研判"},
+      {id:"agri-disaster", name:"災害勘災與損失評估"},
+      {id:"agri-trace", name:"農地履歷與品牌行銷"},
+      {id:"agri-service", name:"飛防與測繪服務隊"},
+      {id:"agri-chain", name:"機具維修供應鏈"}
+    ]},
+  life:{ id:"life", no:"03", name:"無人機與日常生活", tag:"生活延伸", desc:"從休閒空拍、生活服務到居家檢查，讓無人機走進你我的日常。",
+    children:[
+      {id:"life", name:"生活應用總覽"},
+      {id:"life-record", name:"旅行、風景空拍"},
+      {id:"life-event", name:"活動與婚禮紀錄"},
+      {id:"life-deliver", name:"山區、偏鄉配送"},
+      {id:"life-patrol", name:"巡邏、搜救與勘查"},
+      {id:"life-inspect", name:"屋頂、外牆與太陽能巡檢"},
+      {id:"life-site", name:"工地進度紀錄"},
+      {id:"life-starter", name:"新手空拍入門"},
+      {id:"life-race", name:"競速與花式飛行"},
+      {id:"life-edu", name:"親子科普課程"}
+    ]},
+  reg:{ id:"reg", no:"04", name:"法規、安全與成本", tag:"合規與風險", desc:"懂規定、知風險、算成本，才是長久經營的基礎。",
+    children:[
+      {id:"reg", name:"法規安全總覽"},
+      {id:"reg-law", name:"機體登記與飛手證照"},
+      {id:"reg-no-fly", name:"禁飛區與申請"},
+      {id:"reg-env", name:"噴藥的環境責任"},
+      {id:"reg-weather", name:"天氣條件判斷"},
+      {id:"reg-obstacle", name:"避障與緊急處置"},
+      {id:"reg-drift", name:"藥劑飄移與鄰田爭議"},
+      {id:"reg-cost", name:"投入與維持成本"},
+      {id:"reg-model", name:"自購、合作社、外包"}
+    ]},
+  future:{ id:"future", no:"05", name:"未來發展與永續", tag:"前瞻", desc:"技術會怎麼長、農業會往哪去，以及無人機在永續路上的角色。",
+    children:[
+      {id:"future", name:"趨勢總覽"},
+      {id:"future-tech", name:"技術與產業升級"},
+      {id:"future-auto", name:"全自動機場與機隊"},
+      {id:"future-ai", name:"AI 農業決策"},
+      {id:"future-sustain", name:"減藥減水減碳"},
+      {id:"future-organic", name:"有機與坡地保育"}
+    ]},
+  resources:{ id:"resources", no:"06", name:"案例與實用資源", tag:"參考", desc:"看別人怎麼做、用工具動手做，還有名詞與培訓一次看懂。",
+    children:[
+      {id:"resources", name:"資源總覽"},
+      {id:"resources-case", name:"台灣農業案例"},
+      {id:"resources-oversea", name:"國外大型農場做法"},
+      {id:"resources-tools", name:"作業檢核表"},
+      {id:"resources-training", name:"飛手培訓資源"},
+      {id:"resources-terms", name:"名詞對照表"}
+    ]}
+};
+const PILLAR_ORDER = ["tech","agri","life","reg","future","resources"];
+
+/* ---- 各條目一句話說明（支柱頁與目錄用） ---- */
+const DESC={
+  tech:"農用無人機的技術總覽：機型、感測、自動飛行一次看懂。",
+  "tech-drones":"先分清楚植保噴灑型、測繪空拍型與多功能型，再依田塊選機。",
+  "tech-power":"電池續航與動力是農用無人機最主要的限制與換電作業核心。",
+  "tech-nav":"RTK 定位、慣性導航與避障感測，是精準與安全飛行的基礎。",
+  "tech-rig":"藥箱、霧化系統、播撒模組與吊掛載具，決定無人機「怎麼做事」。",
+  "tech-sensors":"可見光、多光譜與熱影像，如何把作物狀況「拍」成數據。",
+  "tech-ai":"用 AI 影像辨識找出雜草、病蟲害與缺肥，是精準施作的關鍵。",
+  "tech-cloud":"拍攝資料上雲後，如何生成處方圖並回傳給機具作業。",
+  "tech-autopilot":"航線規劃、自動返航與斷航續飛，讓作業從「手飛」走向「任務」。",
+  "tech-variable":"依處方圖動態調整施藥與施肥量，哪裡有問題才處理哪裡。",
+  "tech-fleet":"多機協同與自動機巢，是下一代省工農業的重要方向。",
+  "tech-starter":"想學無人機技術，該從哪裡開始、要準備什麼。",
+  agri:"沿產前、產中、產後三大環節，看無人機如何補上農業的缺口。",
+  "agri-pre":"用空拍把農地面積、地形與分區一次量清楚，省下踏田時間。",
+  "agri-soil":"搭配土壤資料做分區管理，讓種植方案更貼近每一塊田。",
+  "agri-slope":"山坡地與零碎農地風險高，空拍能先幫你評估開發與作業難度。",
+  "agri-monitor":"定期空拍追蹤作物生長與逆境，提早發現缺水、缺肥與病蟲害。",
+  "agri-spray":"植保噴灑的標準流程、霧滴控制與藥劑飄移防護。",
+  "agri-sow":"種子直播、粒肥與除草粒劑的撒布，速度快且均勻。",
+  "agri-assist":"驅鳥、輔助授粉與山區物資運補，無人機的輔助角色。",
+  "agri-post":"從產量預估到採收時機研判，把數據延伸到收成之後。",
+  "agri-disaster":"颱風、淹水與火災後的勘災，空拍能快速掌握損失範圍。",
+  "agri-trace":"空拍影像做成農地履歷，是溯源與品牌行銷的好素材。",
+  "agri-service":"飛防服務隊與測繪服務商的商業模式與合作方式。",
+  "agri-chain":"機體、電池、維修與數據平台構成的農業服務供應鏈。",
+  life:"讓無人機走進旅行、生活服務與居家檢查的日常應用總覽。",
+  "life-record":"用空拍記錄旅行與風景，是無人機最親民的入門用法。",
+  "life-event":"活動與婚禮的空中視角，為重要時刻留下獨特畫面。",
+  "life-deliver":"山區、偏鄉的小件配送試驗，如何縮短最後一哩。",
+  "life-patrol":"社區、河道與山坡巡邏，以及火災、搜救的空中勘查。",
+  "life-inspect":"屋頂、外牆與太陽能板的空中巡檢，安全又省力。",
+  "life-site":"工地進度用空拍拍照，比地面紀錄更直觀、可追溯。",
+  "life-starter":"新手入門：怎麼挑第一台機、怎麼安全飛、先練什麼。",
+  "life-race":"競速與花式飛行，無人機的另一種運動玩法。",
+  "life-edu":"用無人機做親子科普與課程，從玩樂中認識科技與安全。",
+  reg:"懂規定、知風險、算成本，無人機才用得長久。",
+  "reg-law":"台灣無人機法規重點：機體登記、飛手證照與管理原則。",
+  "reg-no-fly":"禁飛區、限制區與專案申請，飛行前必查的空域。",
+  "reg-env":"農藥噴施的環境責任：藥劑管理、飄散與鄰田影響。",
+  "reg-weather":"風速、雨、霧與溫度，如何決定今天能不能出機。",
+  "reg-obstacle":"避障、緊急處置與電池管理，現場作業的安全守則。",
+  "reg-drift":"藥劑飄移傷鄰田的爭議，怎麼預防與處理。",
+  "reg-cost":"買機、電池、維修、訓練與軟體，一張帳本算清楚。",
+  "reg-model":"自己買、合作社、外包服務，三種經營方式怎麼選。",
+  future:"技術會怎麼長、農業往哪去，以及無人機在永續路上的角色。",
+  "future-tech":"自動化、多機協作與數據平台，是產業升級的三條主線。",
+  "future-auto":"全自動機場與機隊排程，讓噴藥施肥走向「無人值守」。",
+  "future-ai":"用 AI 大模型做農業決策，自動生成田間管理方案的可能。",
+  "future-sustain":"減藥、減水、減碳，無人機如何降低農業的環境足跡。",
+  "future-organic":"有機與友善農業、坡地保育，無人機的另一種應用潛力。",
+  resources:"看案例、用工具、查名詞，動手之前先把資源備齊。",
+  "resources-case":"台灣茶園、果園與高山農業，無人機的實際應用案例。",
+  "resources-oversea":"國外大型農場如何用無人機機隊管理大面積農田。",
+  "resources-tools":"田間作業檢核表，出機前後逐項確認。",
+  "resources-training":"飛手培訓與學習資源，取得證照與技能的管道。",
+  "resources-terms":"農用無人機常見名詞，一次看懂。"
+};
+
+/* ---- 旗艦文章內文 ---- */
+const A_TW="更新：2026-11-02";
+const authorBase={name:"林編輯",role:"農業技術主編",bio:"具農事服務與植保實務經驗，負責技術與產業鏈內容的架構與審校，內容以可查證公開資料與實務為基礎。"};
+const authorLaw={name:"陳編輯",role:"法規與安全編輯",bio:"長期整理台灣無人機法規與現場作業風險，協助讀者在不違規的前提下安全作業。"};
+const authorLife={name:"許編輯",role:"生活應用編輯",bio:"從休閒空拍到生活服務，負責面向一般讀者的入門與延伸內容。"};
+
+const ARTICLE={
+  "tech-drones":{title:"農用無人機機型怎麼選：植保、測繪與多功能一次看懂",summary:"選錯機型是新手最常見的投資失誤。這篇從用途、載重、田塊型態三個角度，幫你先分清楚「植保噴灑型」「測繪空拍型」與「多功能型」的差別。",updated:A_TW,tags:["機型","選購","技術"],author:authorBase,body:[
+    {p:"農用無人機常被分成兩大類，外加一類「多功能」：先搞清楚你要做「噴撒」還是「拍攝」，選型就完成一半。"},
+    {h3:"植保噴灑型（載重型）"},
+    {p:"顧名思義，這類機器強調「載重與執行」：機身較大、通常配備藥箱或播撒桶，可以掛載噴藥、噴葉面肥、撒種子與粒肥。適合水稻、果樹、茶園、雜糧等需要大量施作的作物。"},
+    {ul:["優點：作業效率高，一台一天可處理大片田區。","考量：重量與尺寸較大，需要較大操作空間與換電配套。","適用：以噴藥、撒肥為主的農田。"]},
+    {h3:"測繪空拍型（輕量型）"},
+    {p:"輕巧、續航相對短，重點在「拍」不在「撒」：搭載高畫質、多光譜或熱影像相機，拿來拍照、監測生長、繪製田區地圖、評估面積與災害。不做大量噴灑。"},
+    {ul:["優點：機動性高、好上手、適合巡田與紀錄。","適用：想要「先看懂自己的田」再談施作的農民或顧問。"]},
+    {h3:"多功能型"},
+    {p:"可換裝模組的機型，噴灑、播撒、測繪一機多用。對田塊類型多變、預算有限的中小農而言，是「一次投資多用途」的選項；缺點是單一性能不一定比得上專用機。"},
+    {callout:"選型前先確認三件事：田塊大小與形狀、主要作物與作業型態、以及你是否需要登記或證照。規格與法規請以原廠與主管機關現行公告為準。"},
+    {h3:"從載重與地形看適配"},
+    {ul:["小田、零碎田：優先機動性與小尺寸，容易進出、易於搬運。","大面積植保：優先載重與電池續航，並規劃換電點與維修服務。","山坡果園：除噴灑外，也要考量地形爬升與吊掛運輸需求。"]}
+  ]},
+  "tech-starter":{title:"無人機技術怎麼入門：先懂原理，再談操作",summary:"不從按鈕開始，而從「飛得穩、看得懂、用得準」三個層次建立技術底子。",updated:A_TW,tags:["入門","學習","技術"],author:authorBase,body:[
+    {p:"學無人機技術不一定要先會開飛機。把它拆成三層，逐步建立就夠了。"},
+    {h3:"第一層：飛得穩（飛行原理與操作）"},
+    {ul:["了解升力、姿態與遙控的基本概念。","先練起降、懸停與直線航線，再進階轉彎與返航。","熟悉電池管理與低電量返航的處理。"]},
+    {h3:"第二層：看得懂（感測與影像）"},
+    {ul:["認識可見光、多光譜與熱影像各自能看出什麼。","學會看正射影像與農田地圖，分辨缺肥、缺水與病蟲區塊。","把影像結果對應到田間實況，培養「判讀」而非只看畫面。"]},
+    {h3:"第三層：用得準（任務規劃與數據）"},
+    {ul:["學習航線規劃與自動任務設定。","理解處方圖：用數據決定哪裡該多施、哪裡該少施。","逐步把「拍攝→分析→施作」串成閉環。"]},
+    {callout:"進度不必求快：先在小面積空曠地練穩操作，同時讀懂影像判讀，再談自動化與變量施作。法規與場地限制請以主管機關現行公告為準。"}
+  ]},
+  "agri-spray":{title:"植保噴灑作業流程：從準備到收工的完整步驟",summary:"植保噴灑不是「飛上去噴」這麼簡單。這篇整理一次標準作業的完整流程，特別強調霧滴控制與藥劑飄移防護。",updated:A_TW,tags:["植保","噴灑","實務"],author:authorBase,body:[
+    {p:"一次安全的植保噴灑，在起飛之前就開始了。以下是最低限度的流程參考。"},
+    {ol:["確認法規與場地：機體登記、操作資格、禁飛區與農地周邊環境。","天氣評估：風速、雨、霧、溫度的門檻，不達標就不出機。","藥劑與載具準備：依作物與病蟲害選藥、配水，檢查霧化系統。","航線與處方規劃：圈定作業範圍，避開水源、住戶與敏感區。","試飛與校準：先小範圍試噴，確認霧滴與均勻度。","正式作業：依航線飛行，隨時觀察風向與飄移。","收工檢查：清洗藥箱管路、記錄作業資料、處理殘藥。"]},
+    {h3:"霧滴控制"},
+    {p:"霧滴大小直接影響效果與風險：霧滴太大易落滴、太小易隨風飄移。應依藥劑特性與風速調整，並避免在明顯風速下作業。"},
+    {h3:"飄移防護"},
+    {ul:["作業前預留緩衝帶，避開鄰田、養殖場、水源與住家。","隨時確認風向，風太大或風向不穩定時停止。","記錄當次作業的用藥、範圍與氣象，做為後續佐證。"]},
+    {callout:"農藥施用涉及藥劑管理與環境責任，請依農藥管理相關法規與藥劑標示使用；作業安全與責任歸屬請諮詢專業飛手與主管機關。"}
+  ]},
+  "agri-monitor":{title:"作物逆境監測：用空拍提早看見缺肥、缺水與病蟲害",summary:"等作物看起來「明顯不行」往往已經晚了。定期空拍搭配判讀，才能在早期介入。",updated:A_TW,tags:["監測","病蟲害","精準農業"],author:authorBase,body:[
+    {p:"逆境監測的價值在「提早」：肉眼難察覺的初期異常，常能透過光譜與熱影像的差異先被發現。"},
+    {h3:"多看哪幾種訊號"},
+    {ul:["多光譜：可反映葉片健康、缺肥與病徵的指數差異。","熱影像：可看出缺水與蒸散異常的溫度差。","可見光：用於倒伏、雜草與外觀異常的直接判讀。"]},
+    {h3:"建議做法"},
+    {ol:["建立基準：先拍一次健康狀態，做為後續比較的對照。","固定頻率巡拍：依作物生長階段安排週期。","圈出異常區塊：在影像上標記需要實地確認的位置。","實地驗證：下田看看到底是缺肥、病蟲還是其他原因。","回饋施作：把異常區塊做成處方圖，精準處理該區塊。"]},
+    {callout:"監測只能「提示異常」，不能取代田間實地確認。影像判讀結果請對照土壤與作物實況再下結論。"}
+  ]},
+  "life-starter":{title:"新手空拍入門：挑機、安全、先練什麼",summary:"想把無人機帶進生活，第一步不是買最貴的，而是先搞懂安全與合規。",updated:A_TW,tags:["空拍","新手","生活"],author:authorLife,body:[
+    {p:"空拍是最親民的無人機入門，但「會飛」和「飛得安全合規」是兩件事。"},
+    {h3:"怎麼挑第一台"},
+    {ul:["先看用途：風景紀錄、活動拍攝或純體驗，決定需求等級。","重視新手功能：自動返航、避障、GPS 定位能大幅降低風險。","確認法規：機體重量與用途對應的登記、證照與保險要求。"]},
+    {h3:"第一次飛之前"},
+    {ul:["在空曠、無人群、遠離機場的場地練習。","起飛前檢查電量、槳葉與 GPS 訊號。","避開機場周邊、人群上空、敏感區域等禁飛範圍。"]},
+    {h3:"先練什麼"},
+    {ol:["原地起降：穩定又平滑的起降是一切基礎。","懸停：讓機器穩穩停住，練習微調。","直線與轉彎：小範圍進出，再擴大到長距離。","自動返航：學會在低電量與失聯時用返航自救。"]},
+    {callout:"飛行前請務必查詢現行空域規定與禁飛範圍。發生意外、傷人或財產損失的責任，請依《遙控無人機管理規則》等規範處理。"}
+  ]},
+  "reg-law":{title:"台灣無人機法規重點：登記、證照與飛行紅線",summary:"在台灣飛無人機不是「想飛就飛」。這篇整理機體登記、操作資格與禁飛範圍三大重點，協助你合法起飛。",updated:A_TW,tags:["法規","證照","合規"],author:authorLaw,body:[
+    {p:"台灣無人機管理以《民用航空法》授權的《遙控無人機管理規則》為主要依據，重點可歸納為三件事：機體怎麼管、誰能飛、哪裡能飛。"},
+    {h3:"機體登記"},
+    {ul:["一般遙控無人機達一定重量門檻即需辦理註冊登記。","農用、載物等特定用途或較大機型，可能適用更嚴格的管理與限制。"]},
+    {h3:"操作資格（證照）"},
+    {ul:["依機型級別與用途，操作人可能須取得對應之操作證。","活動申請、保險與責任歸屬，多與操作資格相關。"]},
+    {h3:"空域與飛行紅線"},
+    {ul:["機場周邊、人口稠密區、政府機關等劃設為禁飛區或限制區。","一般飛友須依規定申請或避開；農業噴藥另有專案申請機制。","違反相關規定可能涉及裁罰，飛行前務必確認現行公告。"]},
+    {callout:"法規與空域會調整，本文僅作重點整理，不構成法律意見。實際申請與飛行，請以交通部民用航空局等主管機關現行公告與規定為準。"}
+  ]},
+  "reg-weather":{title:"天氣條件判斷：風、雨、霧、溫度對作業的影響",summary:"出不出機，先看天氣。風、雨、霧與溫度是最常影響作業安全與效果的四個變數。",updated:A_TW,tags:["安全","氣象","作業"],author:authorLaw,body:[
+    {ul:["風速：風太大時藥液易飄移、影像易抖動，也會增加姿態負擔。","雨與高濕：雨中飛行有電子設備風險，也影響藥液附著。","霧：能見度不足時，避障與視距飛行都受限制。","溫度：極端高溫影響電池效能，低溫影響續航與材料韌性。"]},
+    {p:"最務實的判斷是「寧可停，不要硬飛」。出機前查當地即時天氣，並在現場觀察風向與能見度。"},
+    {ul:["依原廠建議的風速、溫度工作範圍為準。","噴灑作業對風尤其敏感，風速過高應直接取消。","預留緩衝：傍晚風勢易變，長距離任務更要評估時間。"]}
+  ]},
+  "future-auto":{title:"從人工噴藥到全自動機場：農業無人機的下一步",summary:"當無人機可以自己起飛、作業、降落與充電，「無人值守」的農業才真正落地。",updated:A_TW,tags:["趨勢","自動化","未來"],author:authorBase,body:[
+    {p:"目前無人機作業仍依賴飛手換電、下指令。全自動機場（自動機巢）把這個環節交給機器：無人機定點起降、自動充電、接收任務後自行完成航線。"},
+    {h3:"自動機巢解決什麼"},
+    {ul:["省去往返換電的人力，提升單日作業面積。","多機由排程系統協調，同時服務多區塊田。","降低對飛手連續作業的依賴，讓系統性任務更穩定。"]},
+    {h3:"真正落地的前提"},
+    {ul:["場地與供電：需要穩定、合規的起降點與電源。","法規與操作資格：自動化不改變操作者責任與空域限制。","數據閉環：任務結果回饋系統，才能持續優化。"]},
+    {callout:"全自動不等於「無人負責」。即使全自動，操作者仍須負起法規、安全與作業結果的責任。"}
+  ]},
+  "resources-training":{title:"飛手培訓與學習資源：從新手到能接案的管道",summary:"想成為飛手，需要的不只是會飛，還包括法規、安全與實際作業的訓練。",updated:A_TW,tags:["培訓","飛手","資源"],author:authorLaw,body:[
+    {h3:"訓練管道"},
+    {ul:["取得操作證：依機型級別透過認可機構培訓與考照。","原廠培訓：多數無人機原廠提供機型專屬課程。","實務見習：跟飛防服務隊或資深飛手見習，累積田間經驗。"]},
+    {h3:"自學資源"},
+    {ul:["主管機關公告：查閱現行法規、空域與申請流程。","線上課程與說明文件：了解飛行原理、安全與維護。","社群與飛手社群：交流田間案例與應變經驗。"]},
+    {h3:"能不能接案"},
+    {p:"接案除需相應操作資格外，也要考量保險、契約與責任分工。建議先以見習與小規模合作累積經驗，再逐步擴大服務範圍。"}
+  ]},
+  "resources-tools":{title:"田間作業檢核表：出機前後逐項確認",summary:"一張可以列印的檢核表，幫你把出機前的準備與收工後的檢查一次做齊。",updated:A_TW,tags:["工具","檢核表","安全"],author:authorBase,body:[
+    {h3:"出機前"},
+    {ul:["確認空域與申請狀態、操作資格有效。","檢查天氣：風速、雨、霧、溫度是否在範圍內。","檢查機體：槳葉、機臂、馬達、連接件無損。","檢查電池：電量、健康度與備用電池足夠。","檢查執行配件：藥箱、噴頭、播撒桶清潔且正常。","設定任務：航線、緩衝帶、避開敏感區。"]},
+    {h3:"作業中"},
+    {ul:["確認 GPS 與遙控訊號穩定。","隨時觀察風向與飄移，異常即停。","注意電量與返航時機。"]},
+    {h3:"收工後"},
+    {ul:["清洗藥箱與管路，妥善處理殘藥與廢水。","檢查機體與電池，記錄作業資料。","備份影像與任務數據，補登農地履歷。"]}
+  ]}
+};
+
+/* ---- 法務文件 ---- */
+const PRIVACY=[
+  {h:"一、我們蒐集哪些資料"},
+  {p:"當你使用本站聯絡表單時，我們會蒐集你主動填寫的姓名、Email、主題與訊息內容，僅用於回覆你的詢問與後續聯繫。"},
+  {p:"瀏覽本站時，伺服器與內容傳遞（CDN）服務可能依其運作需要記錄連線資訊（如 IP、瀏覽器類型、存取時間），此類資料一般用於安全與流量管理。"},
+  {h:"二、資料的使用方式"},
+  {ul:["回覆你的諮詢、合作提案與內容勘誤。","維護網站安全與穩定運作。","統計匿名流量，用於了解讀者需求；不會用於向你推銷。"]},
+  {h:"三、第三方服務"},
+  {p:"本站使用 Cloudflare 等內容傳遞與安全服務，其處理連線資料的範圍與方式，請參閱各服務商之隱私政策。"},
+  {h:"四、資料保存與你的權利"},
+  {p:"我們會基於合理期限保存必要的資料。你有權要求查閱、更正或刪除與你相關的個人資料，請透過聯絡我們提出。"},
+  {h:"五、未成年人"},
+  {p:"本站內容屬一般知識性質。若你未滿十八歲，請在家長或監護人陪同下使用聯絡表單。"},
+  {h:"六、政策更新"},
+  {p:"本政策可能依服務與法規變動而調整，更新後將於本頁公告。"}
+];
+const DISCLAIMER=[
+  {h:"一、內容性質"},
+  {p:"本站內容為知識整理與一般性說明，僅供參考，不構成法律、農藥施用、飛行作業或投資等專業建議。實際作業請諮詢具執業資格之專業人員。"},
+  {h:"二、法規與時效"},
+  {p:"法規、空域、機型規格與作業門檻會隨時間調整。本站無法保證內容永遠符合最新規定，使用前請以主管機關現行公告為準。"},
+  {h:"三、作業風險"},
+  {p:"無人機飛行與農藥噴施涉及人身、財產與環境風險。使用者應自行確保合規、安全與保險安排；因使用本站資訊所生之任何損失，本站不負責任。"},
+  {h:"四、外部連結"},
+  {p:"本站可能提供外部連結，僅為便利參考。外部網站之內容與政策與本站無關，請自行判斷。"},
+  {h:"五、完整閱讀"},
+  {p:"使用本站即代表你已閱讀並理解本免責聲明。如有疑義，請先與我們聯繫。"}
+];
+const TERMS=[
+  {h:"一、授權與使用"},
+  {p:"本站內容歡迎個人基於參考、學習之目的瀏覽與引用（請註明出處）。未經同意，不得大量複製、販售或用作商業用途。"},
+  {h:"二、智慧財產"},
+  {p:"本站文字、設計與標誌之相關權利屬本站所有。未經授權使用可能涉及侵權責任。"},
+  {h:"三、內容正確性"},
+  {p:"我們會盡力維護內容正確，但不保證內容絕對無誤。若發現錯誤，歡迎透過聯絡我們勘誤。"},
+  {h:"四、條款變更"},
+  {p:"本條款可能不定期更新，更新後將於本頁公告，並於公告時生效。"}
+];
+
+/* ============ 通用工具 ============ */
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}
+function blockHtml(b){
+  if(b.p!==undefined) return "<p>"+b.p+"</p>";
+  if(b.h3!==undefined) return "<h3>"+b.h3+"</h3>";
+  if(b.callout!==undefined) return '<div class="callout">'+b.callout+"</div>";
+  if(b.tip!==undefined) return '<div class="callout">'+b.tip+"</div>";
+  if(b.ul!==undefined) return "<ul>"+b.ul.map(x=>"<li>"+x+"</li>").join("")+"</ul>";
+  if(b.ol!==undefined) return "<ol>"+b.ol.map(x=>"<li>"+x+"</li>").join("")+"</ol>";
+  return "";
+}
+
+/* ============ 首頁卡片 ============ */
+function renderPillarCards(){
+  const c=document.getElementById("pillarCards");
+  c.innerHTML=PILLAR_ORDER.map(id=>{
+    const p=PILLARS[id];
+    const ic = id==="agri"||id==="future" ? "green" : (id==="life"||id==="resources" ? "amber":"");
+    return `<a class="card" href="#${id}" data-route>
+      <span class="ic ${ic}">${iconSvg(id)}</span>
+      <span class="eyebrow">${esc(p.no)} · ${esc(p.tag)}</span>
+      <h3>${esc(p.name)}</h3>
+      <p>${esc(p.desc)}</p>
+      <span class="more">進入 ${esc(p.name)}<span class="tag">→</span></span>
+    </a>`;
+  }).join("");
+}
+function iconSvg(id){
+  const c="currentColor";
+  switch(id){
+    case "tech": return '<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="'+c+'" stroke-width="1.8"><path d="M3 18h18M4 18v-5a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v5M8 9V7a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>';
+    case "agri": return '<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="'+c+'" stroke-width="1.8"><path d="M4 20h16M6 20V11a6 6 0 0 1 12 0v9M9 20v-4M15 20v-4"/></svg>';
+    case "life": return '<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="'+c+'" stroke-width="1.8"><path d="M12 21c-4 0-7-3.5-7-8a7 7 0 0 1 14 0c0 4.5-3 8-7 8Z"/><path d="M12 21V11"/></svg>';
+    case "reg": return '<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="'+c+'" stroke-width="1.8"><path d="M12 3l7 3v5c0 4-3 7-7 10-4-3-7-6-7-10V6l7-3Z"/><path d="M9.5 12l2 2 3.5-4"/></svg>';
+    case "future": return '<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="'+c+'" stroke-width="1.8"><path d="M12 4a8 8 0 1 0 8 8"/><path d="M12 4v8l5 3"/></svg>';
+    case "resources": return '<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="'+c+'" stroke-width="1.8"><path d="M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6Z"/><path d="M8 9h8M8 13h5M8 16h3"/></svg>';
+  }
+  return "";
+}
+
+/* ============ 支柱頁（Hub） ============ */
+function pillarHubHtml(p){
+  const items=p.children.map(ch=>{
+    const d=DESC[ch.id]||"";
+    const isHub = ch.id===p.id;
+    if(isHub) return "";
+    return `<a class="card" href="#${ch.id}" data-route>
+      <h3>${esc(ch.name)}</h3>
+      <p>${esc(d)}</p>
+      <span class="more">閱讀<span class="tag">→</span></span>
+    </a>`;
+  }).join("");
+  return `<nav class="breadcrumb"><a href="#home" data-route>首頁</a><span class="sep">›</span><span>${esc(p.name)}</span></nav>
+    <span class="eyebrow">支柱 ${esc(p.no)} · ${esc(p.tag)}</span>
+    <h1>${esc(p.name)}</h1>
+    <p class="lead">${esc(p.desc)}</p>
+    <div class="cards" style="grid-template-columns:repeat(3,1fr)">${items}</div>`;
+}
+
+/* ============ 文章／條目頁 ============ */
+function articleHtml(id){
+  const a=ARTICLE[id];
+  const p=pillarOf(id);
+  const crumb = p ? `<a href="#home" data-route>首頁</a><span class="sep">›</span><a href="#${p.id}" data-route>${esc(p.name)}</a><span class="sep">›</span><span>${esc(a.title)}</span>` : `<a href="#home" data-route>首頁</a><span class="sep">›</span><span>${esc(a.title)}</span>`;
+  const authorName = a.author ? esc(a.author.name) : "農翔誌編輯群";
+  const authorRole = a.author ? esc(a.author.role) : "內容編輯";
+  const av = a.author && a.author.name ? a.author.name.replace("編輯","").trim().slice(0,2) : "編";
+  const bodyHtml=a.body.map(blockHtml).join("");
+  const tagsHtml=(a.tags||[]).map(t=>`<span class="crumb-tag">#${esc(t)}</span>`).join(" ");
+  return `<nav class="breadcrumb">${crumb}</nav>
+    <span class="eyebrow">${esc(p?p.name:"文章")}</span>
+    <h1>${esc(a.title)}</h1>
+    <div class="meta">
+      <span>作者：${authorName}</span>
+      <span>更新：${esc(a.updated)}</span>
+      <span>分類：${esc(p?p.name:"—")}</span>
+      ${tagsHtml}
+    </div>
+    <p class="lead">${esc(a.summary)}</p>
+    ${bodyHtml}
+    <div class="author-box">
+      <span class="av">${av}</span>
+      <div>
+        <b>${authorName} · ${authorRole}</b>
+        <p>${esc(a.authorBio||"本站編輯以可查證的公開資料與實務經驗整理內容，並在頁面標示作者與更新日期，提升內容的 E-E-A-T 可信度。")}</p>
+      </div>
+    </div>`;
+}
+
+function pillarOf(id){
+  for(const k in PILLARS){ const p=PILLARS[k]; if(p.children.some(c=>c.id===id)) return p; }
+  return null;
+}
+
+/* ============ 側邊欄 ============ */
+function buildSidebar(activeId){
+  const wrap=document.getElementById("sidebarWrap");
+  if(activeId==="home"||activeId==="about"||activeId==="contact"||activeId==="privacy"||activeId==="disclaimer"||activeId==="terms"||activeId==="sitemap"){ wrap.innerHTML=""; return; }
+  const p=pillarOf(activeId)||PILLARS[activeId];
+  if(!p){ wrap.innerHTML=""; return; }
+  const lis=p.children.map(ch=>{
+    const here=ch.id===activeId;
+    const isHub=ch.id===p.id;
+    const label = isHub ? esc(ch.name) : esc(ch.name);
+    const link = `<a class="side-top" href="#${ch.id}" data-route>${label}<span class="plus">+</span></a>`;
+    return `<li class="${here?'open':''}">${link}</li>`;
+  }).join("");
+  wrap.innerHTML=`<div class="side-head"><span class="bar"></span>本站分類 · ${esc(p.name)}</div>
+    <ul class="side-list">${lis}</ul>`;
+}
+
+/* ============ 麵包屑與 Meta ============ */
+function metaFor(id){
+  const p=pillarOf(id);
+  if(ARTICLE[id]) return { title:ARTICLE[id].title+" ｜ 農翔誌", desc:ARTICLE[id].summary, path:id };
+  if(PILLARS[id]) return { title:PILLARS[id].name+" ｜ 農翔誌", desc:PILLARS[id].desc, path:id };
+  const m={
+    home:["農翔誌｜農業與無人機知識庫","從田間到天空：農用無人機技術、農業產業鏈、日常生活與永續農業的繁體中文知識庫。",id],
+    about:["關於我們 ｜ 農翔誌","認識農翔誌的定位、編輯團隊與內容原則。",id],
+    contact:["聯絡我們 ｜ 農翔誌","與農翔誌編輯群聯繫，取得農用無人機與農業應用的諮詢指引。",id],
+    privacy:["隱私政策 ｜ 農翔誌","農翔誌如何蒐集、使用與保護你的個人資料。",id],
+    disclaimer:["免責聲明 ｜ 農翔誌","農翔誌內容的參考性質與使用風險說明。",id],
+    terms:["使用條款 ｜ 農翔誌","農翔誌網站的使用規則與授權說明。",id],
+    sitemap:["知識庫目錄 ｜ 農翔誌","農翔誌全站主題索引，方便一次看懂所有條目。",id]
+  }[id];
+  return m? {title:m[0],desc:m[1],path:m[2]} : {title:"農翔誌",desc:"",path:""};
+}
+function setMeta(id){
+  const m=metaFor(id);
+  document.title=m.title||"農翔誌";
+  const md=document.querySelector('meta[name="description"]'); if(md&&m.desc) md.setAttribute("content",m.desc);
+  const ca=document.querySelector('link[rel="canonical"]'); if(ca) ca.setAttribute("href",SITE.home+(m.path&&m.path!=="home"?m.path:""));
+}
+
+/* ============ 靜態頁 ============ */
+function staticHtml(id){
+  const map={
+    about: aboutHtml(), contact: contactHtml(), privacy: legalHtml("隱私政策",PRIVACY),
+    disclaimer: legalHtml("免責聲明",DISCLAIMER), terms: legalHtml("使用條款",TERMS)
+  };
+  if(id==="sitemap") return sitemapHtml();
+  return map[id]||"";
+}
+function contactHtml(){
+  return `<nav class="breadcrumb"><a href="#home" data-route>首頁</a><span class="sep">›</span><span>聯絡我們</span></nav>
+  <span class="eyebrow">Contact</span>
+  <h1>聯絡我們</h1>
+  <p class="lead">本站不代購、不代飛、不提供個別農田診斷。以下表單用於知識諮詢、合作提案與內容勘誤。</p>
+  <div class="article-block">
+    <form id="contactForm" novalidate>
+      <div class="form-grid">
+        <div class="field"><label for="cf-name">姓名</label><input id="cf-name" name="name" type="text" required placeholder="您的稱呼"></div>
+        <div class="field"><label for="cf-mail">Email</label><input id="cf-mail" name="mail" type="email" required placeholder="name@example.com"></div>
+      </div>
+      <div class="field" style="margin-top:14px"><label for="cf-topic">主題</label>
+        <select id="cf-topic" name="topic"><option>知識諮詢</option><option>合作提案</option><option>內容勘誤</option><option>其他</option></select></div>
+      <div class="field" style="margin-top:14px"><label for="cf-msg">內容</label><textarea id="cf-msg" name="msg" required placeholder="請簡單說明你的需求或問題"></textarea></div>
+      <button class="btn btn-primary" style="margin-top:18px" type="submit">送出諮詢</button>
+      <p class="form-note">送出後本站將於 2 個工作天內回覆（示範站不實際寄送）。</p>
+    </form>
+  </div>`;
+}
+function aboutHtml(){
+  const team=[
+    {n:"林",role:"主編 · 農業技術",bio:"曾任農事服務與植保經驗，負責產業鏈與技術內容的架構與審校。"},
+    {n:"陳",role:"法規與安全編輯",bio:"長期整理台灣無人機法規與現場作業風險，確保內容符合現行規範。"},
+    {n:"許",role:"生活應用編輯",bio:"從休閒空拍到生活服務，負責面向一般讀者的入門內容。"}
+  ];
+  return `<nav class="breadcrumb"><a href="#home" data-route>首頁</a><span class="sep">›</span><span>關於我們</span></nav>
+  <span class="eyebrow">About</span>
+  <h1>關於我們</h1>
+  <p class="lead">農翔誌是一份繁體中文的農業與無人機知識庫。我們相信：無人機不是遙遠的科技，而是能實際補上農業人力、地形與資源缺口的一雙手。</p>
+  <div class="article-block">
+    <h2>我們在做什麼</h2>
+    <p>本站沿「無人機技術 → 農業生產產業鏈 → 日常生活延伸」三條主線整理內容，採權重金字塔的資訊架構：首頁只放六大支柱入口，深入內容由支柱頁與側邊欄承接。每一條目都標示作者與更新日期，正文以可查證的公開資料與實務經驗為基礎，拒絕無來源的誇大數據。</p>
+    <h2>內容原則</h2>
+    <ul>
+      <li>具備可查證來源：涉及法規、數據與規格時，盡量註明主管機關或來源方向。</li>
+      <li>人味與作者：每篇文章有署名與作者簡介，避免「無作者」的機器感。</li>
+      <li>以台灣實務為優先：法規、地形與產業案例多依台灣情境撰寫。</li>
+      <li>只整理知識、不代購代飛：本站提供指引，實際作業請遵循主管機關規範並徵詢專業飛手。</li>
+    </ul>
+    <h2>編輯團隊</h2>
+    <div class="team-grid">
+      ${team.map(t=>`<div class="team"><span class="av">${t.n}</span><h3>${t.n}</h3><span class="role">${t.role}</span><p>${t.bio}</p></div>`).join("")}
+    </div>
+  </div>`;
+}
+function legalHtml(title,paras){
+  return `<nav class="breadcrumb"><a href="#home" data-route>首頁</a><span class="sep">›</span><span>${title}</span></nav>
+  <span class="eyebrow">Legal</span>
+  <h1>${title}</h1>
+  <div class="article-block legal">${paras.map(p=>{
+    if(p.h) return "<h2>"+p.h+"</h2>";
+    if(p.list) return "<ul>"+p.list.map(x=>"<li>"+x+"</li>").join("")+"</ul>";
+    return "<p>"+p.p+"</p>";
+  }).join("")}</div>`;
+}
+function sitemapHtml(){
+  const blocks=PILLAR_ORDER.map(id=>{
+    const p=PILLARS[id];
+    const lis=p.children.map(ch=>{
+      const a=ARTICLE[ch.id];
+      const nm = ch.id===p.id? ch.name+"（總覽）" : ch.name;
+      const cls = a? "" : ' class="wip"';
+      return `<li${cls}>${a?`<a href="#${ch.id}" data-route>${esc(nm)}</a>`:esc(nm)}</li>`;
+    }).join("");
+    return `<div class="sitemap-block"><h2>${esc(p.name)}</h2><ul>${lis}</ul></div>`;
+  }).join("");
+  return `<nav class="breadcrumb"><a href="#home" data-route>首頁</a><span class="sep">›</span><span>知識庫目錄</span></nav>
+  <span class="eyebrow">Sitemap</span>
+  <h1>知識庫目錄</h1>
+  <p class="lead">以下是本站全部主題索引，以支柱分類排列。凡尚未完成的條目，統一以文字「撰寫中」標註、不提供假連結，待內容補齊後上線。</p>
+  <div class="sitemap-grid">${blocks}</div>`;
+}
+
+/* ============ 路由 ============ */
+let currentId="home";
+const STATIC_IDS=["about","contact","privacy","disclaimer","terms","sitemap"];
+function hasView(id){
+  return id==="home"||STATIC_IDS.includes(id)||PILLARS[id]||ARTICLE[id];
+}
+function render(id){
+  currentId=id;
+  const homeV=document.getElementById("view-home");
+  const renderV=document.getElementById("view-render");
+  const smV=document.getElementById("view-sitemap");
+  const ctV=document.getElementById("view-contact");
+  [homeV,renderV,smV,ctV].forEach(v=>v.classList.remove("active"));
+  document.body.classList.remove("show-home");
+  document.querySelectorAll(".nav-item").forEach(n=>n.classList.remove("open"));
+  setMeta(id);
+  if(id==="home"){
+    homeV.classList.add("active");
+    document.body.classList.add("show-home");
+    buildSidebar(id);
+    setActiveNav("");
+    window.scrollTo({top:0});
+    return;
+  }
+  if(id==="sitemap"){
+    smV.classList.add("active");
+    document.getElementById("sitemapMount").innerHTML=sitemapHtml();
+    buildSidebar(id); setActiveNav("resources");
+    window.scrollTo({top:0}); return;
+  }
+  if(id==="contact"){
+    ctV.classList.add("active");
+    document.getElementById("contactMount").innerHTML=contactHtml();
+    buildSidebar(id); setActiveNav("");
+    window.scrollTo({top:0}); return;
+  }
+  renderV.classList.add("active");
+  const content=document.getElementById("renderContent");
+  const p=pillarOf(id);
+  const body = ARTICLE[id]? articleHtml(id) : (PILLARS[id]? pillarHubHtml(PILLARS[id]) : (STATIC_IDS.includes(id)? staticHtml(id):""));
+  content.innerHTML=body;
+  buildSidebar(id);
+  setActiveNav(p?p.id:"");
+  window.scrollTo({top:0});
+}
+function setActiveNav(pillarId){
+  document.querySelectorAll("#mainNav .nav-item").forEach(n=>{
+    const a=n.querySelector("a");
+    n.classList.toggle("active", a && (pillarId? a.getAttribute("href")==="#"+pillarId : false));
+  });
+}
+function onHash(){
+  let id=location.hash.replace("#","");
+  if(!id||!hasView(id)) id="home";
+  render(id);
+}
+
+/* ============ 選單開合 ============ */
+function bindNav(){
+  const items=document.querySelectorAll("#mainNav .nav-item");
+  items.forEach(it=>{
+    it.addEventListener("mouseenter",()=>items.forEach(x=>x.classList.remove("open")) || it.classList.add("open"));
+    it.addEventListener("mouseleave",()=>it.classList.remove("open"));
+  });
+}
+/* Drawer */
+function buildDrawer(){
+  const list=document.getElementById("drawerList");
+  const rows=PILLAR_ORDER.map(id=>{
+    const p=PILLARS[id];
+    return `<li><a href="#${id}" data-route>${esc(p.name)}</a><ul class="dl sub">${p.children.slice(1).map(ch=>`<li><a href="#${ch.id}" data-route>${esc(ch.name)}</a></li>`).join("")}</ul></li>`;
+  }).join("");
+  list.innerHTML=rows+`<li><a href="#about" data-route>關於我們</a></li><li><a href="#contact" data-route>聯絡我們</a></li>`;
+}
+const drawer=document.getElementById("drawer");
+const hamburger=document.getElementById("hamburger");
+function openDrawer(o){ drawer.classList.toggle("open",o); drawer.setAttribute("aria-hidden",String(!o)); hamburger.setAttribute("aria-expanded",String(o)); }
+hamburger.addEventListener("click",e=>{e.stopPropagation(); openDrawer(!drawer.classList.contains("open"));});
+document.querySelectorAll("[data-close]").forEach(el=>el.addEventListener("click",()=>openDrawer(false)));
+
+/* 全域 data-route 連結委派 */
+document.addEventListener("click",e=>{
+  const a=e.target.closest("a[data-route]");
+  if(!a) return;
+  const href=a.getAttribute("href");
+  if(href && href.startsWith("#")){
+    e.preventDefault();
+    openDrawer(false);
+    if(location.hash!==href){ location.hash=href; } else { onHash(); }
+  }
+});
+document.addEventListener("DOMContentLoaded",()=>{
+  renderPillarCards();
+  buildDrawer();
+  bindNav();
+  onHash();
+});
+window.addEventListener("hashchange",onHash);
+</script>
+</body>
+</html>
