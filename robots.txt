@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+# 本站商品在 https://331.today/shop（統一收單）
